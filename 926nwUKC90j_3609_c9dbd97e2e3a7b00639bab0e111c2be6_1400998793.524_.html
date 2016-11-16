@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="3609"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$926nwUKC90j</title>
+</head>
+<body><h1>5 月萌典松: moed4ct</h1><ul class="comment"><li>所以以後萌典松場次數字是要加在 &quot;e&quot; 還是 &quot;i&quot; 哩（轉眼珠）</li>
+<li>這種都見機行事</li>
+<li>轉回來了 XD</li>
+<li>那我 BOOKSHOW 行事曆再改回來 XD</li></ul>
+
+<p>時間: 5/25 11am-9pm (歡迎遲到早退)</p><p>地點: <a href='http://bookshow.tw/traffic/'/>Bookshow.tw</a>&nbsp; 基隆路一段 141 號 6 樓之 7（捷運市政府站步行三分鐘）</p><p>名額: 25 人: <a href='http://g0v-tw.kktix.cc/events/moedict-5-25'/>報名頁面</a> 。</p><p>內容: 比照前三次萌典松方式，採「併松」模式舉行，歡迎 g0v 各大小專案加<b><u>萌</u></b>參加。</p><p><b>費用</b>: 採量力而捐、自由贊助方式。如有剩餘，捐給下次黑客松。</p><p></p><p>萌典相關開發項目</p><ul><li>這個月新增的 <a href='https://drive.google.com/folderview?id=0B9tD1zENsweyTVhIa21IY0w4V2s&amp;usp=sharing'/>CSLD 資料集</a> (CC-By 4.0) 看有什麼可以用/轉的</li>
+<li>建立 <a href="http://terms.naer.edu.tw/"></a>http://terms.naer.edu.tw/ 往 JSON 的 pipeline，也許和英法德一樣併進萌典裡?</li>
+<li>將之前 ethantw 接近完成的使用者自定界面 UI 合併進 master</li>
+<li><i>...your thoughts here...</i></li></ul>
+
+<p></p><h2>併松</h2><p><b>農域松</b></p><ul><li><a href="http://hack.g0v.tw/agriculture"></a>http://hack.g0v.tw/agriculture</li>
+<li>最近農藥篇副本狂開，坑已經到達一種很恐怖的量!!!(副本持續加開中)</li>
+<li>目前重要副本種類: 神農的作物分類樹(作物種類定義)、娜塔雅的藥劑混合交集(不同作物間的共用藥劑)、凱因的武器作用機制(藥劑作用機制標定)</li>
+<li>先感謝子龍XD<img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_926nwUKC90j_p.81090_1399531414357_10331788_10152361113749886_571836359_n (1).jpg'/></li></ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_926nwUKC90j_p.145273_1400944215622_農業娘.jpg'/></p><p><b>農學地圖&amp;hackmap</b></p><ul style="list-style: none;"><li>現有成果：<a href="http://g0v.github.io/farmer/"></a>http://g0v.github.io/farmer/</li><ul><li>已偷跑部份：<ul><li>將手屋地圖模組(<a href='http://www.github.com/bestian/shackhand'/>shackhand</a>)，加上以etherclac當後台的功能，用在農學地圖上&nbsp;</li>
+<li>雙後台功能：<ul><li>firebase+fb用以個人登入自己</li>
+<li>etherclac用以快速共筆資訊(e.x.農夫市集, 未註冊FB的農友)</li></ul>
+</li>
+<li>分成兩圖層顯示</li>
+<li>最大相容目標：etherclac後台建設，要與hackfoldr相容 :+1:&nbsp;<ul><li>同樣的資訊可以在hackfoldr也可以在shackhand地圖上呈現</li>
+<li>只要在第六欄輸入概略地址，程式執行時會自動get再post回去，將第七欄的經緯度補上，就不必手動輸入經緯度</li></ul>
+<ul class="comment"><li>經緯度格式要小心，目前寫etherclac後台時，都以「?? 」取代「,」，以免當作csv讀時，多一個逗號變成多分一欄</li>
+<li><br/></li></ul>
+</ul>
+</ul>
+<ul><li>下一步：<ul><li>多圖層獨立設定</li>
+<li>Css優化</li>
+<li>Debug</li>
+<li>Bowyer的相容性</li>
+<li>hackmap的後端架設</li>
+<li>農學地圖<ul><li>製作適合的表單</li>
+<li>製作適合的過濾器</li></ul>
+</ul>
+</ul>
+<ul class="comment"><li><i>後兩部份有模組改一改內容即可</i></li><ul><li>Mobile App</li></ul>
+</ul>
+</ul>
+
+<ul style="list-style: none;"><li>需要：</li><ul class="task"><li>視覺設計</li>
+<li>後端設計</li>
+<li>前端設計</li>
+<li>Mibile App設計</li></ul>
+<ul class="taskdone"><li><a href='https://github.com/audreyt/ethercalc/issues/74'/>Ethercalc Post</a>的技術支援&nbsp; -- 已偷跑完工，感謝 <a href='/ep/profile/DaKXhWfoD7Q'/>Audrey Tang</a> 的技術支援</li></ul>
+</ul>
+
+<p></p><p><b>自經松</b></p><ul><li>自經區現有研究成果： <a href="https://musou.hackpad.com/ngjF3YSdE9B"></a>https://musou.hackpad.com/ngjF3YSdE9B</li>
+<li>要做什麼：<ul><li>還在想要做什麼</li>
+<li>各領域針對條文的整理?</li>
+<li>更佳的視覺化?</li></ul>
+</ul>
+
+<p><b>動民主家族松</b></p><ul><li>各網路民主、直接民主專案交流 + 小衝刺↓以下開放各專案寫自己要做的東西<ul><li>打算來作公民臉書</li>
+<li>打算來整理可以幫助 poga 作公民臉書的文件，像是動民主家族結構藍圖……or whatever poga says</li>
+<li>發想台灣版 democracy.com</li></ul>
+</li>
+<li>開發資源收集區↓（好像可以開一個專門 pad 來收集）</li></ul>
+<ul class="comment"><li>找到可以內嵌(embad)的social polling/voting服務</li>
+<li><a href="http://www.opinionstage.com"></a><a href='http://www.opinionstage.com/'/>http://www.opinionstage.com</a></li>
+<li>或許可以整併來做網站開發，省下從頭寫polling/voting的力氣</li>
+<li>目前做到的討論+公投=群策，用的是現成的服務+輕量的科技，較果還不錯<a href="https://glassy.github.io/we/hold/"></a>https://glassy.github.io/we/hold/</li>
+<li>有考慮看看 <a href='http://poplus.org/'/>Poplus</a> 的 lib 與 spec 嗎</li></ul>
+
+<p><b>政獻松：需要 OCR 功能 / debug 攻城獅、美術獅、以及沒有人</b></p><ul class="comment"><li>沒人陪我政獻松的話，就來參與謝頓松（&quot;基礎建設松&quot;的縮寫梗是什麼）</li>
+<li>是葉隊長嘛? 我幫開一個 hackpad 把實作提案放進去好了，不然萌典松 pad 會爆長～～</li>
+<li>我是葉隊長（？）沒錯，掃描組..</li>
+<li>有神快拜！（FYI, 如果不想露出中文全名，可以點左上三條線功能鈕，進入帳號設定改顯示名稱）</li>
+<li>改好了XD 感謝</li></ul>
+<p>剛才討論的實作內容已新開 pad，請到這裡討論噢：<a href='/NxMrvI4uYcP#525-cy'/>525 萌典併政治獻金松實作提案</a></p><ul><li>目前開放政治獻金相關討論，都在 <a href='/ep/group/mgUOtpJUUSt'/>g0v cy collection</a> 裡</li></ul>
+
+<p><b>基礎松</b></p><ul><li>補完新版 hackfoldr + people-project hub 企畫 <a href="http://g0v.github.io/g0v-tour-guide/public/hack.html"></a>http://g0v.github.io/g0v-tour-guide/public/hack.html</li></ul>
+
+<h2>熱量</h2><ul class="comment"><li>這次 h1 都要兩個字嘛</li></ul>
+<ul><li>阪急 Saison du Soleil 麵包點心盒：楊小姐或易小姐</li>
+<li>肯德基有外送</li>
+<li>a0kman小白鼠試驗煮食</li></ul>
+
+<h2>文播</h2><p></p><p>開場 (au)&nbsp;</p><p></p><p></p><p>農域松 (a0kman)</p><p></p><p>農業的幅員廣闊，包括上下游各端，目前區分為三個系統，但以藥劑為出發點。</p><p></p><p>藥劑系統是一個洛克人的概念，也就是讓農民可以在面對 boss (作物) 時，挑選適合的武器 (農藥)，並且充份瞭解它們的效果。</p><p></p><p>政獻松 (venev)</p><p></p><p>政治獻金明細從監察院帶出來之後，因為電腦辨識率不完美，所以讓鄉民幫忙辨識，目前已經到達三校 60 萬格，也已經做成 Excel 和 open data 版本。</p><p></p><p>目前工作流程的 SOP 已經大致順暢，目前上下游的重點是:</p><p></p><ol><li>透過 FB 粉絲團，邀人進入監察院掃描，提供紙本</li>
+<li>下游希望有 data scientist、journalist 等，用「有梗」、「視覺化」的方式呈現</li></ol>
+
+<p>今天雖然榮尼王沒有來，但是也歡迎直接找 venev 分流。</p><p></p><p>動民主 (ETBlue)</p><p></p><p>想和 poga 做「公民臉書」和完成基礎建設松的待辦事項。</p><p></p><p>poga: 同上</p><p></p><p>trueman 資訊背景有關心動民主專案，有個透明黨社團雖然跟 g0v 沒關係但是對資訊系統有些想法所以想整合，讓動民主跟其他公民資訊系統連結，找到更多使用者</p><p></p><p>何容？我喜歡畫畫，我讀的是松山家商室內設計科一年級，需要我幫忙的話可以找我</p><p></p><p>欣怡：我還沒學寫程式，今天來想支援濃學地圖的網站，很單純希望不管搬到台灣哪裡，可以利用這個地圖找到當地友善的農產品，在任何地方都可以買得到友善農業或自然濃法的東西，可以用這個圖查到，因為我常常買菜可以提供這方面資訊，可以做一些版面社計畫是小插畫</p><p></p><p>唐宗浩：今天來要分享、找人幫忙的是地圖專案，本來在掙扎今天要不要present，這個是樣品而已啦，之前本來最的是字學地圖，之前跟直接跟農夫買的人聯絡上它們希望可以有多圖層，可已有多後台…有些在ethercalc有些在？？比較需要的部分是版面跟使用者經驗的設計，程式馬的部分有些bug可能需要修，希望盡可能把背後程式馬抽出來變成模組，套用在其他地方，讓其他弟圖專案可以在一小時內生出地圖，現場後端的人有興趣支援的話有個idea可以做成hackm,ap，現在hackfoldr很流行…blah可以後台做得跟hackfoldr很像，在某個欄位加上地址列，程式界自動把經緯度補上去，打的人不用打經緯度，這樣網站上有hackfoldr的地方就自動讀，叫做 hackmap～需要兩頭，一頭是視覺跟使用者設計，一個是程式<s>馬</s>碼擴充</p><p></p><p>kiwi：我是來支援民主相關專案的，後端會，有需要可以聊</p><p></p><p>奧客：下午會有個小短講講上禮拜的…這個系統前面兩個做好後第三個是最重要，……連接到後面的氣象……現在講副本，在screen那些資料時以為很快就會生出來，沒想到發現農民會比較需要使用到的，主成分有自己的中文名，但商品名不同，哪種紀行，安全採收期是什麼，一個禮拜要用多少次，那一公頃的使用量、為服不規定、藥到底可不可以賣（使用證）……比較麻煩的負本事找一種菜可以找到三種藥，但局科業菜內有好幾種藥，但當初不是登記給筒蒿的…blah…總之就是沒辦法直接去找我用什麼植物可以用什麼藥。台灣農業有個特殊現象是同一塊田裡面小小兩分地種了三種作物，因為分散風險＋輪作，或者這一季就這些是最好賣的，他有客戶要交，這種混種就會出現A藥不小心用在B作物身上，被檢測出來有嚴重殘留、被罰。哪些蔬菜是適合種在一起的也需要可以在裡面被找到。</p><p></p><p></p><p></p><p>a-tsioh: 今天早上 open source (終於!) 了 TaigiIME for Android，本來想弄得比較乾淨(初次寫 Android App)，但還是就先 GPL 出來了 (含法文變數名稱)。有 bug list，可以從這邊開始。然後可以用同一個 data schema 做出客家話的手機輸入法，可以一起討論。</p><p></p><p></p><p></p><p></p><p>大雄：文化總會，漢字開放資料應用及推廣計畫，三大個工作關於漢字開放資料及的分析和產書、推廣、漢字藝術的鑽研。還有十幾個資料及只是初審，想說過一陣子再丟，也可以把初稿丟上去給大家debug，開放資料服務平台年底才會做完，下次萌典松在報告會產出哪些</p><p></p><p>melody：ditto大雄</p><p></p><p>子龍：專案間的流動人口，視覺設計、繪圖</p><p></p><p>鈕克力：零時直播平台工廠，狡兔有三坑所以要看有什麼可以支援的地方，程式只懂基本，有時間的話可能會簡單介紹現在作的東西，對動民主有興趣。零時直播介紹：名稱暫訂g8v.tv，名字背後有憤怒的來源…套au大大的向日葵數<s>為</s>位體驗營後，發現傳統電視新聞媒體有明顯特定立場言論，因為憤怒及無力感產生此坑，想解決的問題是營隊的時候很多直播畫面用hackfoldr整理，但現場需要有個電視牆系統，身在現場的中控或直播監看人員需要同時間看各個鏡頭，所以我用現成的東西修改，每個元素都是半透明的，背景圖也可以更換，右測試直播鏡頭選擇介面，內場、外場、電視新聞、irc…主畫面是電視牆。用justin.tv作為支援平台，因為是台灣直播人會用的平台，雖然最近種種原因不少人又回流到ustream…上面hackpad筆記區是方便文播人員邊看邊打。irc是一定要的 lol。在實際直播的時候，斷掉或沒畫面的可能原因很多種，比方說因為風吹導致防水布蓋住鏡頭，或有人惡意破壞。要能即時反應這些狀況，網路有程式去ping但布遮住要用監看的。當天華山試用，可以把畫面移動到畫面（地圖）上相對應的位置，不只可以監看還可以偷看其他網路實況。希望不只把直播實況拉進來，也把離線但已經存成串流的影片拉進來。可以做明顯的對照，可以打媒體臉～其他應用：立法院公聽會，講者引述某個立法院決議，希望聊天室使用者找到影片連結貼出來，其他人只要點連結就可以跳出畫面，實際對照講者講的話跟實際上當時的決議是不是相符。還有考慮到分享，希望剛才的對照畫面可以透過長短網址分享，短網址可以用在推特、bbs，長網址可以給facebook貼（預覽需要）。最終目標是成為方便閱聽者判斷的公信平台</p><p></p><p>ly：我也不知道今天來幹嘛，看有什麼坑…</p><ul class="comment"><li>orz ....</li></ul>
+<p>12:12 午餐時間，大風吹時間，敬請期待更多食物，下個節目是短講</p><p></p><p>venev 表示 12:30 會有正規的午餐送到。</p><p></p><p>林昆翰 (a-han)， 政大語言所博士生，第一次參加！之前因為g0v在政大演講有去聽，聽完以後知道有黑客松，我不會寫程式，想要多聽多想看能幫什麼</p><p></p><p>a</p></body>
+</html>

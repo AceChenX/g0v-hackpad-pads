@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="1411"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$g6v6MpyacFb</title>
+</head>
+<body><h1>政府公開通訊錄</h1><p></p><h2>來龍去脈</h2><p></p><p><b>主旨</b></p><p>有問題要回報或是要聯絡單位的時候，提供查詢電話或地址功能</p><p></p><p>源起是<a href='https://g0v.hackpad.com/mynkDCEAXgc'/>鄉民關心你</a>，在想要找到對的窗口的時候，需要有電話聯絡方式。後來發現其實沒有人有整理這方面的資訊，就把政府機關的聯絡方式整理成聯絡人，提供大家使用</p><p></p><p><b>牽涉領域</b></p><p>公家機關 | 通訊錄 | 聯絡人</p><p></p><p><b>相關組織單位</b></p><p>政府機關</p><p></p><p><b>相關專案</b></p><p>鄉民關心你 <a href="http://hack.g0v.tw/kuansim"></a><a href='http://hack.g0v.tw/kuansim'/>http://hack.g0v.tw/kuansim</a></p><p></p><p><b>授權方式</b></p><p>資料部份使用 CC-0 授權</p><ul class="comment"><li>程式碼部分（如 MIT/BSD）</li></ul>
+
+<p><b>使用資料</b></p><ul><li>政府機關單位列表 <a href="http://oid.nat.gov.tw/infobox1/personmain.jsp"></a>http://oid.nat.gov.tw/infobox1/personmain.jsp</li></ul>
+<ul style="list-style: none;"><li>結構解析參考 <a href="http://data.g0v.tw/questions/11/"></a>http://data.g0v.tw/questions/11/</li></ul>
+<ul><li>各地派出所 <a href="http://data.gov.tw/opendata/Details?sno=301000000A-00001"></a>http://data.gov.tw/opendata/Details?sno=301000000A-00001</li></ul>
+<ul class="comment"><li>消防單位 ?</li></ul>
+
+<p><b>專案目前狀態</b></p><p>實作</p><p></p><p></p><h2>目標與功能</h2><p></p><p><b>預定使用者</b></p><ul><li>開發者</li>
+<li>想打電話或 E-mail 給政府單位的人</li></ul>
+
+<p><b>預定功能</b></p><ul><li>&nbsp;資料輸入<ul><li>Google 表單工人輸入</li>
+<li><a href='http://oid.nat.gov.tw/infobox1/personindex.jsp'/>政府機關列表</a></li>
+<li>json</li></ul>
+</li>
+<li>&nbsp;資料輸出<ul><li>json ?</li>
+<li>vCard ?</li>
+<li>用 cardDAV 連接，即時更新資料庫</li></ul>
+</li>
+<li>不提供<ul><li>不提供查詢電話號碼功能</li>
+<li>不提供代繳電話費</li>
+<li>不提供自動播號功能</li></ul>
+</ul>
+
+<p><b>使用方式</b></p><p>TBD</p><p></p><h2>實做細節</h2><p></p><p><b>使用技術與工具</b></p><ul><li>python</li>
+<li>raw data</li></ul>
+<ul style="list-style: none;"><li><a href="https://github.com/g0v/addressbook"></a>https://github.com/g0v/addressbook</li></ul>
+
+<p>Server</p><ul><li>jsDAV(webDAV only) or Radicale</li></ul>
+
+<p><b>產出檔案格式</b></p><ul><li>CardDAV</li>
+<li>Database backend<ul><li><a href='https://www.firebase.com/'/>Firebase</a></li>
+<li>vCard</li></ul>
+</li>
+<li>格式 (用 dictionay 儲存)<ul><li>OID</li>
+<li>名稱</li>
+<li>電話*</li>
+<li>地址*<ul><li>郵遞區號</li></ul>
+</li>
+<li>傳真</li>
+<li>英文名稱</li>
+<li>網址</li>
+<li>Email</li>
+<li>報案系統/Issue Tracking System(如果有的話)</li></ul>
+</ul>
+<ul class="comment"><li>報案系統的話～可以之後再結合喲<a href='/poC9Ox6QDfB'/> 1.0 Citizen Police Radio CPR</a></li>
+<li><br/></li></ul>
+
+<p><b>進度與 to-do</b></p><ul class="taskdone"><li>確認現有資料來源</li><ul class="task"><li>爬資料，存成 json</li><ul class="taskdone"><li>解析網址 big5 -&gt; utf8</li>
+<li>解析網址，成 dictionary</li>
+<li>發出 request 解析結果，成 dictionary</li>
+<li>解析儲存結果成 json&nbsp;</li></ul>
+</ul>
+</ul>
+<ul class="task"><li>提供工人智彗輸入 (Google 表格)</li></ul>
+<ul class="comment"><li>在準備好現有資料來源後再準備</li></ul>
+<ul class="task"><li>放入資料庫</li>
+<li>實作(餵給) CardDAV</li></ul>
+
+<p>資料輸出</p><ul class="task"><li>json 輸出</li>
+<li>vCard 輸出</li></ul>
+
+<p><b>現有成果</b></p><p></p><h2>開發者</h2><p></p><p><b>技術指導</b></p><p><a href='/ep/profile/pgKgmUWKew6GVUKgrhRX7'/>HisnYi Chen</a></p><p></p><p><b>分工與成員</b></p><p><a href='/ep/profile/-1WLkpThoAjbwgNN97zIerK'/>Kai-Yuan Cheng</a></p><p></p><h2>介面</h2><p>&nbsp;支援 cardDAV 的 client</p><ul class="comment"><li>參考資料：<a href="https://itunes.apple.com/us/app/reach-network/id570134451?mt=8"></a>https://itunes.apple.com/us/app/reach-network/id570134451?mt=8</li></ul>
+
+</body>
+</html>

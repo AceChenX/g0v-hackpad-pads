@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="887"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$5Rpzv7bxLlw</title>
+</head>
+<body><h1>vTaiwan 介面 2.0</h1><p>demo：<a href="https://react.vtaiwan.tw/"></a><a href='https://react.vtaiwan.tw/'/>https://react.vtaiwan.tw/</a>&nbsp;</p><p>repo：<a href="https://github.com/g0v/react.vtaiwan.tw"></a>https://github.com/g0v/react.vtaiwan.tw</p><p>ref：<a href='/vTaiwan.tw-mockup-v1-cJSDzZRro6W'/>廣宣組意見彙整</a></p><p></p><p>6/5 小松</p><ul class="taskdone"><li>左上 toggle 在桌面應該變得比較不明顯 [soidid]</li>
+<li>最底下的 menu item 會被吃掉</li>
+<li>「各階段」在 Category 層，加上 &lt;，暗示可以回上層。首頁連結也要加 Home 符號 [soidid]</li>
+<li>Post paging 無法多頁 [soidid]</li>
+<li>Discuss paging 應顯示最舊、最新，而不是最舊的兩個 [soidid]</li>
+<li>首頁會出橫向捲軸 [pm5]</li>
+<li>手機版的 Nav 顯示時，樣式調整 [soidid]</li>
+<li>手機版預設不顯示 Nav&nbsp;</li>
+<li>首頁各階段加上介紹文字 [soidid]</li>
+<li>Zombie 應該要不使用 paths.js 而是用 scraping (follow href) [au]</li>
+<li>靜態頁面：/how 、 /tutorial 、 /about [au]</li>
+<li>locationHandler 在 dev mode 換回 Router.HistoryLocation，把 server.js 做成可以處理 /path/ [ly]</li><ul><li><a href='https://github.com/rackt/react-router/issues/676'/>rackt/react router#676</a></li></ul>
+</li>
+<li>Transmit 的後端加上 cache（如 superagent-cache or caching-fetch） [ly]</li><ul><li>immutable-request</li></ul>
+</li>
+<li>整個畫面多了一個 scrollbar [pm5]</li></li>
+<li>NavList 符合 router.getCurrentPath() 的項目要 highlight，另外 hover 時也要 high/light</li>
+<li>post item 裡原本 talk.vtaiwan.tw 的連結會壞掉 [pm5]</li></li>
+<li><br/></li></ul>
+
+<p>5/30 線上設計松 + 6/2 au clkao 討論筆記</p><ul><li>桌面模式時，左上角的 toggle 取消<ul><li>「回首頁」和「回上層」用圖示表示</li>
+<li>「各階段」在 Category 層可以用 menu 裡的 sub-tab icon 切換，而不是回上層再下來</li></ul>
+</li>
+<li>議題形成區<ul><li>用時事作為 motivating example，不預設正反方<ul><li>例如「施明德以網路收集總統選舉連署正本」</li>
+<li>第零階段：在 pol.is 上建立個案討論，將網址貼上<ul><li>公開 review，需滿足三個構成要件：<ul><li>以網路使用者為主要利益相關者</li>
+<li>與法規調適有直接關聯</li>
+<li>不預設特定解決方案</li></ul>
+</li>
+<li>取得一定參與度，即可開始尋找合適之提案部會。</li></ul>
+</ul>
+</ul>
+</ul>
+
+<p>4/24 小松，討論介面目前需要修改的地方，以下從需要優先修改的列起</p><p></p><ul><li>不知道左上角可以按。四行改三行。預設展開不要擋到。</li><ul class="taskdone"><li>這個改好了~ 已上線。</li></ul>
+</ul>
+
+<ul><li>「金管會群眾募資」的定案快要出來了，目前沒有放定案的地方（5/1 前要出現）<ul><li>在 talk 裡面，把草案變成定案？（改了六七個地方）</li>
+<li>或者某個可以 diff 的機制</li></ul>
+</ul>
+
+<p></p><ul><li>討論主題列表的地方，有很多不同的 stage，顯示方式不清楚 &amp; 看不到過去討論的資料<ul><li>相較起來，talk 還比較清楚：<a href="https://talk.vtaiwan.tw/"></a>https://talk.vtaiwan.tw/<ul><li>同一個顏色的就是同一個討論主題</li></ul>
+</ul>
+</ul>
+
+<p></p><ul><li>在某個討論主題底下，各個階段的資料，可以用時間軸的方式呈現<ul><li>左邊是資料，右邊是討論</li>
+<li>也可以參考 udn 的 debate</li></ul>
+</ul>
+
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_5Rpzv7bxLlw_p.61102_1429864006370_IMG_7308 2.jpg'/></p><p></p><ul><li>首頁直接把各個討論主題列出來（目前有九個），圖片用提案時候的簡報封面當作圖片，不要只用部會的 icon，感覺太官樣。<ul><li>例如這裡的簡報：<a href="https://talk.vtaiwan.tw/t/topic/148"></a>https://talk.vtaiwan.tw/t/topic/148</li>
+<li>gitbook 的第一頁</li>
+<li>或是直接放 slideshare 的網址（或 thumbnail 圖片？）在 .json 裡</li></ul>
+</ul>
+
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_5Rpzv7bxLlw_p.61102_1429864941912_IMG_7309.JPG'/></p><p></p></body>
+</html>

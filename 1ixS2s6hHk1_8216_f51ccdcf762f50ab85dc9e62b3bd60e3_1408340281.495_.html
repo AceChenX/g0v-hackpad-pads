@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="8216"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$1ixS2s6hHk1</title>
+</head>
+<body><h1>politwoops 進度<s>規劃</s>現況</h1><p>這是 watchOut x g0v summer code project.</p><p>後端 fork from <a href="https://github.com/sunlightlabs/politwoops-tweet-collector"></a>https://github.com/sunlightlabs/politwoops-tweet-collector</p><p>前端 fork from <a href="https://github.com/sunlightlabs/politwoops"></a>https://github.com/sunlightlabs/politwoops</p><p>後端是主要進度。</p><ul class="comment"><li>&nbsp;<a href='https://developers.facebook.com/tools/explorer'/>FB explorer</a> 、 Python&rsquo;s <a href='https://github.com/pythonforfacebook/facebook-sdk'/>faceboook-sdk</a></li></ul>
+<p>github repo: <a href='https://github.com/lanfon72/feepy'/>feepy</a>、<a href='https://github.com/lanfon72/twpolitwoops-collector'/>twpolitwoops-collector</a></p><ul class="comment"><li>先 fork fb-sdk 下來改</li>
+<li><br/></li></ul class="comment">
+<h2>預計進度</h2><ol><li>把 politwoops.tw 整個架起來</li>
+<li>建後端的 collector</li>
+<li>做資料測試</li>
+<li>修 mockup and web 介面</li></ol>
+
+<h2>進度現況</h2><ul class="comment"><li><s>預計</s>希望星期一(8/18)可以 checker 生出來，這樣可以留星期二做 ppt...</li>
+<li>星期三應該可以早點到草辦(?) 討論一下第二階段的核心重點囧...</li></ul>
+
+<ul class="comment"><li>發現寫日誌↓太痛苦了只好放棄QAQ<ul class="comment"><li>8/7 建了專用帳號<a href='https://www.facebook.com/profile.php?id=100006371201016'/>林艸艸</a>，把公督盟的立委 FB、專頁 資訊都 follow 完成並取得 uid.</li>
+<li><i>8/6 先把 feed_stream 套回 -client, 並修正 -work, 讓 -client 讀到的資料可以被 -work 存取。</i></li></ul>
+</ul>
+
+<p><b>待解 issues</b></p><ul><li>Client</li><ul class="taskdone"><li>FB access_token expire</li>
+<li>增加其他政治人物資料(eg. 市長) in <a href='/2014--i0ONbY1gXpY'/>市長候選人</a></li>
+<li>streaming.py 的 access exception handle. ( set retry )</li></ul>
+<ul class="task"><li>access_token extend, rewrite into .ini</li></ul>
+</ul>
+
+<ul><li>Database</li><ul class="task"><li>SQL table fields</li><ul class="taskdone"><li>politicians</li>
+<li>tweets → feeds</li>
+<li>deleted_tweets → deleted_feeds</li><ul class="comment"><li>feed be deleted 的驗證蠻卡的... 一般的 like post, comment post 沒辦法從 api 取得，</li>
+<li>和實際被刪除的 feed 一樣會被 api return error.</li></ul>
+</ul>
+<ul class="taskdone"><li><s>edited_feeds&nbsp;</s></li><ul class="comment"><li>↑edited_feeds 需新增(但大量更新感覺資料會非常多...囧</li>
+<li>不確定啥用的： users, account_links, offices, pages, statistics</li>
+<li>parties應該是政黨(party)的資料，tweet_images 是圖檔的儲存資料，schema_migrations 應該是tables versions(?</li>
+<li>改存在 feeds 的 feed_edited column.</li></ul>
+</ul>
+<ul class="taskdone"><li>normal_users</li><ul class="comment"><li>存一些 &quot; found user id not in politicians &quot; 的「一般人」或是原本取得的 politician uid 是錯的，也會先丟進這裡。</li>
+<li>had a column: ignored (被確認為一般人)</li></ul>
+</ul>
+<ul class="taskdone"><li>tmp_feeds</li><ul class="comment"><li>1. normal_users&rsquo; feed but not be ignore.</li>
+<li>2. deleted_feeds 的暫存</li>
+<li>3. 其他(總之先暫存=_=</li></ul>
+</ul>
+</ul>
+<ul class="taskdone"><li>deleted feed<s> stream</s> checker</li><ul class="comment"><li>目前的 idea 是每 3~5 mins 從 feeds 裡面用 id 一個一個讀(避免用 feed stream 有可能會漏掉的問題</li>
+<li>但有個問題是「讀不到不見得被刪掉」=_=</li></ul>
+</ul>
+<ul class="taskdone"><li><s>edited feed stream</s></li><ul class="comment"><li>和 deleted feed stream, -worker 併在一起了。</li>
+<li>feed_edited 的做法寫在 talks #2.</li></ul>
+</ul>
+</ul>
+
+<p></p><p><b>=========分水嶺==========</b></p><ul class="taskdone"><li>把 <a href='https://github.com/sunlightlabs/politwoops-tweet-collector'/>politwoops </a>整個架起來(後端) #1</li>
+<li>建後端的 collector&nbsp;&nbsp; <b>//screenshot-worker 先 pass 了, so finished at week: 7/13~</b><ul class="taskdone"><li>把 collector 主要在跑的三支 .py 看懂<ul class="taskdone"><li><a href='https://github.com/sunlightlabs/politwoops-tweet-collector/blob/master/bin/tweets-client.py'/>tweets-client.py</a></li><ul><li>主要進入點在 Line:158，跑兩個thread當heartbeat用(一個避免當掉)，在stream_forever 裡會跑 tweepy 的 stream listener ( L:150&amp;151)</li>
+<li>核心的結構應該算是 L:60 的 class ，把 tweepy 讀到的資料 put 進 beanstalkc ，然後 alert 。 (接下來就沒它的事了XD)</li></ul>
+</ul>
+<ul class="taskdone"><li><a href='https://github.com/sunlightlabs/politwoops-tweet-collector/blob/master/bin/politwoops-worker.py'/>politwoops-worker.py</a></li><ul><li>主要進入點在 Line:105，監測 beanstalk 有沒有 job ( put from tweets-client )，再做處理(L:121)。</li></ul>
+</ul>
+<ul class="task"><li>screenshot-worker.py</li><ul class="comment"><li>這支主要是跑截圖， ly 說先不管它XD</li>
+<li>ya 這個前面完成再來做</li></ul>
+</ul>
+</ul>
+<ul class="taskdone"><li>Write a api like tweepy&rsquo;s on_data()&nbsp;&nbsp; <b>//finish at&nbsp; week: 7/20~</b></li><ul class="comment"><li>using <a href='https://github.com/pythonforfacebook/facebook-sdk'/>faceboook-sdk</a></li></li>
+<li>GraphAPI可以讀到：</li><ul><li>自己的 wall post 出現的內容<ul><li>讀自己的 wall post 比較近似 tweepy 的 streamListener</li></ul>
+</li>
+<li>特定使用者(by id)的 feeds<ul><li>粉絲頁的 id 可以從 data-uid 取得，但 user 的 data-id 卻不見得能夠被 api 讀取( 從chrome-&gt; F12-&gt; data-id )</li><ul class="comment"><li>後來發現這是 v2.0 api 的問題=___= 剛改成 unversioned 就可以從 data-uid 抓到 feeds 了</li>
+<li>=_= (((但我用自己的 data-uid 測還是不行....</li>
+<li>這真的超詭異的... <a href="https://graph.facebook.com/"></a>https://graph.facebook.com/{data-uid}/ 可以讀到資料，但/feed?access_token 卻 OAuth deny...</li></ul>
+</ul>
+</ul>
+</li>
+<li>API 的選擇(既然要做得像 tweepy 就叫 feepy 了(X))</li><ul class="taskdone"><li>write like tweepy streamListener</li><ul><li>只負責讀自己的home feeds (這樣得開一個新的帳號去 follow &amp; like politicians )</li>
+<li>好處是如果被 politicians add friend 的話可以爬到 friend 級的 feed (沒被限制的話</li>
+<li>壞處是 feeds 的排序...一般在看的時候可以選 top stories / most recent ，從 fb-sdk 抓下來的 data 不知道是怎麼排的。(而且資料一多的話 listener 有可能漏掉</li></ul>
+</li>
+<li>a politician have a listener</li><ul><li>個別監聽(?)比較不會有漏訊息的問題，但 deleted feed 似乎還是無解...目前想到的做法是用 feed url 是不是導向 404 的方式去抓(但感覺頗有點難QAQ)</li>
+<li>uid 不易取得。而且有些 user 就算抓到了 uid ，feeds 的資料還是空的...(不知道是不是版本的問題)</li></ul>
+</ul>
+</ul>
+</ul>
+</ul>
+<ul class="comment"><li>source code: <a href='https://github.com/lanfon72/feepy'/>feepy</a>/facebook/streaming.py</li></ul>
+<ul class="code"><li>目前的 usage:</li>
+<li>import facebook &amp; streaming #還沒寫成module檔所以...XD</li>
+<li>token = &rsquo;(your access_token)&rsquo;</li>
+<li>listener = streaming.StreamListener()&nbsp;&nbsp;&nbsp; #politwoops 在 listener 的部份是 overriding</li>
+<li>stream = streaming.Stream( token, listener)</li>
+<li>stream.filter()&nbsp;&nbsp; #and it get run.</li></ul>
+<ul class="comment"><li>problems:</li>
+<li>1. exception 沒有全抓到, 有時候會 response error ( 目前是用vm測長掛，有可能是節電功能的關係XD</li>
+<li>2. filter() 有一些參數沒寫完 (預計是要拿來做 edited &amp; deleted 的功能, 這部份會再補上)</li>
+<li>3. token expired 的問題 ( expired 的問題不知道何解.... 查到的大部份都是解決app&rsquo;s token expired, 但如果用 app 的 token 抓不到自己的 wall post. ( /v2.0/me/home/ can&rsquo;t request)</li>
+<li>&nbsp;&nbsp;&nbsp; 這部份算是 fb &amp; twitter api 的差異, twitter 有 customer_id &amp; secret, 但 fb 找不到 customer_id &amp; secret....=_=</li><ul class="task"><li>Stream 功能完善化&nbsp; // expect finish: 7/28~<ul class="task"><li>edited feed, add key(&rsquo;edited&rsquo;)</li><ul class="comment"><li>ly 說這部份可以參考 news-diff</li>
+<li>用 async stream 實做，primary stream 1min to req ； secodary stream 5min req, to check updated_time != created_time</li></ul>
+</ul>
+<ul class="task"><li>deleted feed&nbsp;</li><ul class="comment"><li><s>這部份可能得跳過囧...</s></li>
+<li>後來決定改第二支 -worker 的 handle_deletion。原本的刪除(因為沒 deleted key)，改成讀 feeds table 再對 FB api 做個別查詢，去驗證 feed exist or not.</li></ul>
+</ul>
+</ul>
+<ul class="taskdone"><li>套回 collector 做測試&nbsp; // expect finish: 8/3~</li><ul class="comment"><li>not here, (上週把 stream 完善一半就....跑去幫忙81了QQ)</li>
+<li>目前打算直接把 -worker &amp; -client rewrite 之後讓它跑看看, 原 collector repo 已 fork.</li></ul>
+</ul>
+</ul>
+
+<h2>備註 & 討論</h2><ul><li><a href='https://github.com/tweepy/tweepy'/>tweepy github</a></li><ul class="comment"><li>核心的 library 是 tweepy 跟 beanstalk ，但 beanstalk 主要是處理資料流，最大的問題還是在 tweepy 上。</li>
+<li>我有跑去看了一下 tweepy 的 source code ，不太確定它 streaming.listener 讀的資料是在自己的 twitter 牆上? 沒啥在用 twitter 不太理解它的運作方式....囧。</li>
+<li>假想的情況是， api 是 listener 自己的 twitter 牆 ( twitter 是在每個 following tweet 的時候都會一併出現在 follower 的牆上吧? )，再針對 tweet 做判讀( tweet content )，所以在 on_data 的時候可以直接從 data.has_key() 裡面判斷資料.....</li>
+<li>但現在比較實質的問題是 FB 的 api 沒有 delete 的 status, 提供的 library 也不全(昨天的 <a href='https://github.com/pythonforfacebook/facebook-sdk'/>FB-pysdk</a> 也沒有類似像 tweepy 的 api 囧，目前的情況比較可能得自幹類似的功能QQ</li></ul class="comment">
+</li>
+<li><a href="https://developers.facebook.com/docs/public_feed"></a>https://developers.facebook.com/docs/public_feed</li></ul>
+<ul class="comment"><li>這裡有提到facebook posts要不要參考一下?</li>
+<li>tweets-client 的資料來源是 tweepy 的 on_data funciton (讀 twitter 牆面的資料)，目前找到可用的 FB Python api 只有 <a href='https://github.com/pythonforfacebook/facebook-sdk'/>faceboook-sdk</a> ...fbsdk 從 GraphAPI 讀到 FB 牆面的資料( dict 格式, keys: data, paging )，但每次讀到的資料不確定一不一樣 囧<ul class="comment"><li>paging 內的 previous &amp; next 回傳的是 url (帶 accesstoken )</li>
+<li>data 內是 list feeds，再根據每筆 feed 會有不同的 keys() 示意圖↓</li>
+<li><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_1ixS2s6hHk1_p.65547_1405934550690_polit.png'/></li></ul>
+</ul>
+<ul><li>FB API 問題</li></ul>
+<ul class="comment"><li>post ref: <a href="https://developers.facebook.com/docs/graph-api/reference/v2.0/post/"></a>https://developers.facebook.com/docs/graph-api/reference/v2.0/post/</li>
+<li>沒有提供 edit history 可以讀</li>
+<li>沒有提供 deleted feed 可以讀 QAQ!! (↓ 參考</li>
+<li><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_1ixS2s6hHk1_p.65547_1405936240353_edit.png'/></li>
+<li>feed&rsquo;s uni link 可以在 actions: 裡面找到 ( comment &amp; like )。 ( for deleted)</li>
+<li>周倪安這篇改了四次，但在抓下來的資料裡面只有 create_time 跟 updated_time 能看出明顯的差異... (for edited)</li></ul>
+<ul><li>FB api 可以用 since, until (Unix timestamp格式)去抓時間區間的feeds，但這只限於created_time。</li><ul class="comment"><li>updated_time 可能還是得一個一個比對...=_= post feed 感覺就是免洗啊 囧...</li></ul>
+</ul>
+<p><b>API差異</b></p><ul><li><b>twitter</b><ul><li>沒有 edit 功能</li>
+<li>API有提供轉推(retweet)的資訊</li><ul class="comment"><li>&quot;retweet_status&rsquo; = False || { <a href='https://dev.twitter.com/docs/entities#retweets'/>entities</a> }&nbsp;</li></ul>
+</ul>
+</ul>
+<ul><li><b>Facebook</b><ul><li>有edit 功能，但 API 不提供比對</li><ul class="comment"><li>本來打算用 updated_time 做 compare, 但原 feed 就算內容沒變，有人 like or comment 也會更新 updated_time...</li></ul>
+</ul>
+<ul><li>沒有獨立提供 shared via 的資訊</li><ul class="comment"><li>但可用 feed 內的 type, status_type, link 做比對(通常是 shared_story + [type] + link</li></ul>
+</ul>
+</ul>
+<ul class="code"><li>all feed keys: id, from, actions, type, privacy, created_time, updated_time, status_type, shares, likes, comments, picture, message, link, application, name, properties, object_id, place, caption, description, story, icon, source</li>
+<li>must have&rsquo;s feed keys: id, from, actions, type, privacy, created_time, updated_time</li>
+<li>type = [&rsquo;status&rsquo;, &rsquo;link&rsquo;, &rsquo;video&rsquo;, &rsquo;photo&rsquo;]</li>
+<li>status_type = [&rsquo;mobile_status_update&rsquo;, &rsquo;created_note&rsquo;, &rsquo;added_photos&rsquo;, &rsquo;added_video&rsquo;, &rsquo;shared_story&rsquo;, &rsquo;created_group&rsquo;, &rsquo;created_event&rsquo;, &rsquo;wall_post&rsquo;, &rsquo;app_created_story&rsquo;, &rsquo;published_story&rsquo;, &rsquo;tagged_in_photo&rsquo;, &rsquo;approved_friend&rsquo;]</li></ul>
+
+<h2>talks</h2><ul class="comment"><li>依目前 (7/15) 看 code 的狀況， 2 &amp; 3 應該會混在一起做；如果有類似 tweepy 的 FB library 則應該會在 8 月初前完成，沒有的話可能得自幹類似 tweepy 的 library.... 那在 8/20 前會完成 ( 後端能做 demo</li>
+<li>那這禮拜的進度就是先玩一下facebook oauth 和facebook api?</li>
+<li>玩 fb api ing LOL</li>
+<li>應該要申請一個faebook app,拿到app id跟app key之後，在app裡面填上去，根據facebook 的oauth流程，可以拿到user的access token，不過public posts應該不用這樣? XD</li>
+<li>我先從 graph API Explorer 做測試XD 但我的牆實在是太髒了lol...感覺要申請一個空帳號來抓會比較好明白會出哪些data</li>
+<li>ya, 申請一個空帳號，另外也可以看能不能抓到某個政治人物facebook的public posts</li>
+<li><a href="https://developers.facebook.com/docs/public_feed"></a><a href='https://developers.facebook.com/docs/public_feed'/>https://developers.facebook.com/docs/public_feed</a>&nbsp;&nbsp; 另外這邊好像有ˋ提到delete的東西參考一下</li>
+<li>! ok我去研究看看XD</li></ul>
+<p>#1&nbsp;</p><ul class="comment"><li>測試用的機器是跑 Lubuntu 12 &amp; 14，</li>
+<li>dependencies 包括: git, python, pip, pythonsqldb, mysql, beanstalkd, tweepy(新版) 跟原project requirements 內的python相關套件。</li>
+<li>pip在 lubuntu 下要用 easy_install 安裝，直接用 apt-get 到後面會炸掉...(原因不明)</li>
+<li>照 README.md 跑到 Running 前， config 檔寫好之後 create database，資料表的部份因為相依在前端的project，這邊先用 ly提供的 <a href='https://gist.github.com/yhsiang/d8bb81aa488ba9bebf39'/>sql schema</a> ，倒進 databse 。</li>
+<li>切進 politicians tables, 加入測試用的 twitter_id &amp; infos.</li>
+<li>跑 Running.&nbsp;&nbsp; (( 第三支截圖用的不跑，config中用 # 把 [AWS] 下的設定都註解掉</li></ul>
+<p>#2</p><ul class="comment"><li>DO 機器是 Ubuntu 12.04(LTS)</li>
+<li>feeds 可以抓到一些很奇妙的東西....像是某擬參選人去open groups like post, comment 別人的 post 之類的....(但用 api 沒辦法直接抓到那則post 的 feed)</li>
+<li>為了避免漏抓 feed, streaming 改成 now() - 10min.&nbsp; ((也就是說 -client start 的時候會先讀前 10分鐘的內容</li>
+<li>這樣子的好處是, streaming 的間隔是 1min (目前)，每次 on_data() 的情況都會是前 10分鐘~現在，feed 如果存在的話就會被抓到10次。 ((剛好可以拿來 check edited.</li>
+<li>((↑↑↑↑不知為何覺得寫得好像有點難懂XDDDD 想到要做 ppt 可能要畫圖就覺得有點痛苦 囧...</li>
+<li>另外因為 deleted_feed 也會對存在 feeds table 裡面的 feed 做 check, 所以剛好可以解決 feed be edited 的問題(時間差)。</li></ul>
+
+</body>
+</html>

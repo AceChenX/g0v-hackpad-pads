@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="1281"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$f4DSkbYYXsi</title>
+</head>
+<body><h1>台南百年文史古地圖</h1><p>以時間軸及歷史疊圖的方式呈現台南古蹟，古地圖與重要歷史事件之連結，甚至是建議踏查路線，讓民眾能藉著 iPad 即行動網路得知在台南做文史旅遊的導覽建議。</p><p></p><p>利益揭露</p><ul><li>這要拿去參加opendata tainan hackthon. (done: 獲得首獎)</li></ul>
+
+<h2>編輯說明</h2><ol><li><s>閱讀參考案例「<a href='http://timemapper.okfnlabs.org/rufuspollock/major-battles-napoleonic-wars'/>拿破崙戰爭時間地圖</a>」</s></li></ol>
+<ul class="comment"><li><s>之前看到類似的，也是時間x空間x事件： <a href='http://kenjispecial.github.io/visualizing-time/'/>Visualizing Time For World War 1</a></s></li>
+<li><s>這範例也太強 ...&nbsp;</s></li>
+<li><s>看起來好像也可以幫她加個backend? XD</s></li></ul>
+<ol><li><s>了解每一則事件的<a href='https://docs.google.com/a/netivism.com.tw/spreadsheet/ccc?key=0AqR8dXc6Ji4JdFRNOTVYYTRqTmh6TUNNd3U2X2pKMGc#gid=0'/>格式</a></s></li>
+<li><s>真正開始編輯<a href='https://docs.google.com/spreadsheets/d/1k6OnUzASOmYhcCjGRygLjETT-H57ztkRFcbUpOlD_Bw/edit?usp=sharing'/>台南的事件</a></s><ol><li><s>另一份<a href='https://docs.google.com/spreadsheet/ccc?key=0AlXBk_cWj_gIdDEtWU1pR3h4ZWpEQXA1TFcyazNydUE&amp;usp=sharing'/>Template</a></s></li>
+<li><s>hackthon demo 的<a href='http://timemap.kuansim.com/anon/hc9f40-'/>台南歷史地圖</a></s></li></ol>
+</li>
+<li><s>可以直接在<a href='http://timemapper.okfnlabs.org/anon/ox8p5w-'/>測式的網址</a>觀看編輯結果（但無法預覽台灣古地圖）</s></li></ol>
+
+<p>test demo: <a href="http://enigmatic-spire-2011.herokuapp.com/anon/vy8pbk-"></a>http://enigmatic-spire-2011.herokuapp.com/anon/<a href='http://enigmatic-spire-2011.herokuapp.com/anon/0n7srf-tst'/>vy8pbk-</a></p><p></p><h2>Ideas pool</h2><ul><li>users should be able to upload gps trackers to the map as tourism route.</li>
+<li>integrated geo reporter data to inform government that citizens wants the gov to&nbsp; fix the historic.&nbsp;&nbsp;</li></ul>
+
+<p><b>Todo List</b></p><p></p><ul class="taskdone"><li>integrate rchss-tainan (demo site: <a href="http://hychen.wuweig.org/leaflet-tw/sample/rchss-tainan.html)"></a><a href='http://hychen.wuweig.org/leaflet-tw/sample/rchss-tainan.html'/>http://hychen.wuweig.org/leaflet-tw/sample/rchss-tainan.html</a>)</li>
+<li>overlap layers configuration.</li></ul>
+<ul class="comment"><li>讓使用者可以選擇想要使用的古地圖, 方式為提供一個checkbox 讓使用者勾選</li>
+<li>&nbsp;need details</li></ul>
+<ul class="taskdone"><li>translate user interface messages.</li>
+<li>CSS problem after translated</li></ul>
+<ul class="task"><li>支援更多古地圖<ul class="task"><li>臺北</li>
+<li>新北</li>
+<li>台中</li>
+<li>高雄</li></ul class="task">
+</li>
+<li>Better Backend&nbsp;</li></ul>
+
+<p><b>developing repo</b></p><ul><li><a href="https://github.com/kuansim/timemap"></a>https://github.com/kuansim/timemap</li></ul>
+
+<h2>Reference</h2><ul><li><a href="https://github.com/okfn/recline"></a>https://github.com/okfn/recline<ul><li>A simple but powerful library for building data applications in pure Javascript and HTML.</li></ul>
+</li>
+<li>time mapper<ul><li><a href="https://github.com/okfn/timemapper"></a><a href='https://github.com/okfn/timemapper'/>https://github.com/okfn/timemapper</a></li></ul>
+</li>
+<li>timeline sample<ul><li><a href="http://www.philharmoniedeparis.com/en/chronologie/#vars"></a><a href='http://www.philharmoniedeparis.com/en/chronologie/#vars!date=2012-09-25_17:11:22'/>http://www.philharmoniedeparis.com/en/chronologie/#vars</a><a href='http://www.philharmoniedeparis.com/en/chronologie/#vars!date=2012-09-25_17:11:22'/>!date=2012-09-25_17:11:22</a>!</li></ul>
+</li>
+<li>Leaflet slider<ul><li><a href="http://dwilhelm89.github.io/LeafletSlider/"></a><a href='http://dwilhelm89.github.io/LeafletSlider/'/>http://dwilhelm89.github.io/LeafletSlider/</a></li></ul>
+</li>
+<li>聽旅行<ul><li><a href="http://www.hearhere.com.tw/"></a>http://www.hearhere.com.tw/</li></ul>
+</li>
+<li>地誌的殘念<ul><li><a href='https://github.com/g0v/twangry/issues/94'/>g0v/twangry#94</a></li></ul>
+</ul>
+
+<h2>QA</h2><ul><li>算是鄉民關心你的一部分？<ul><li>yap.</li></ul>
+</li>
+<li>目前source data可以鎖嗎？（用 gdoc 管權限吧...？）<ul><li>是</li></ul>
+</li>
+<li>是okfnlab fork的嗎？有何不同？（目前看到是增加台南古地圖疊圖功能、對行動裝置體驗的小調整，如果不用古地圖功能，差別在哪？）<ul><li>是 okflab fork，之前增加的多國語系，bug fixing, configure enhancement 都merge回去了</li>
+<li>如果不用古地圖功能，還多了timeline tagging的功能</li></ul>
+</li>
+<li>每個人都可以建立自己的 timemap?<ul><li>yes</li></ul>
+</li>
+<li>頁面會中文化嗎？<ul><li>yes，不過預設是中文的，是否你的browser設定為英文？</li></ul>
+</ul>
+
+<p></p></body>
+</html>

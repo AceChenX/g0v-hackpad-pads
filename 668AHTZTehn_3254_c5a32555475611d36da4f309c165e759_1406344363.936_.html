@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="3254"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$668AHTZTehn</title>
+</head>
+<body><h1>太陽花紀實 - API Document</h1><p></p><undefined><li><b>逐字稿資料</b></li></undefined>
+<ul><li><a href='https://sunflowerdocumentary.hackpad.com/'/>逐字稿工作區</a></li>
+<li><a href='https://docs.google.com/spreadsheet/lv?key=0AgrKKMBahhsEdC1PSU8xRFZ4cXZrNEN3R1d1d2xMSmc&amp;f=true&amp;noheader=true&amp;gid=0'/>街頭民主教室</a></li>
+<li><a href='https://hackpad.com/410-FRzDUBto4Vj'/>文播組逐字稿</a></li></ul>
+
+<p></p><h2>Data Format</h2><ul><li>時間</li>
+<li>地點</li>
+<li>事件名稱</li>
+<li><s>簡介</s></li>
+<li><s>講者</s></li>
+<li>影片位置 (youtube ID)</li>
+<li>影片開始位置 (Time&nbsp; format,)</li>
+<li>相片位置&nbsp; (多個相片位置之間用 空格 相隔)</li></ul>
+<ul class="comment"><li>開google docs 資料夾放照片檔</li>
+<li>整個upload到server, 欄位內只放檔案名稱</li></ul>
+<ul><li>逐字稿位置</li>
+<li>類型 (tag list&nbsp; ex. 街頭民主教室)</li></ul>
+
+<h2>Tag list</h2><p>來源</p><ul><li>國際媒體</li>
+<li>國內電視媒體</li>
+<li>國內平面媒體</li>
+<li>國內網路媒體</li>
+<li>公民媒體 (個人/直播組/ ...)</li></ul>
+
+<p>類型 (主題?)</p><ul><li>街頭民主教室</li>
+<li>草根論壇</li>
+<li>人民憲政會議</li>
+<li>民主加課</li>
+<li>賤民解放區</li>
+<li>大腸花論壇</li>
+<li>割闌尾</li>
+<li>包圍ＯＯＯ</li>
+<li><br/></li></ul>
+
+<p>評論 (談話/節目/ ...)</p><p>紀錄 (直播/錄影/SNG/ ...)</p><p>官方 (記者會/ ...)</p><p></p><p>定點</p><p>機動</p><p></p><p></p><p></p><h2>JSON Format</h2><p></p><p><b>時間軸 Timeline&nbsp;</b></p><p></p><undefined><li><b><u>REQUEST</u></b></li></undefined>
+
+<ul style="list-style: none;"><li><a href="http://sunflower-documentary-api.herokuapp.com/api/1.0/timeline"></a><a href='http://sunflower-documentary-api.herokuapp.com/api/1.0/timeline'/>http://sunflower-documentary-api.herokuapp.com/api/1.0/timeline</a></li></ul>
+<ul><li><b>data/gist.json ( 概要時間軸 )</b></li>
+<li><b>data/speech.json ( 演講時間軸 )</b></li></ul>
+<ul style="list-style: none;"><li><br/></li></ul>
+<undefined><li><b><u>RESPONSE</u></b></li></undefined>
+<ul class="code"><li>[</li>
+<li>&nbsp;&nbsp;&nbsp; {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;event_id&quot;: 1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;focus&quot;: 1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;title&quot;: &quot;兩岸經貿如何影響民主？&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;date&quot;: {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;full&quot; : 2014-03-21T00:00:00+08:00,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;yyyy&quot; : 2014, &quot;mm&quot; : 3, &quot;dd&quot; : 21,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;hh&quot; : 0, &quot;ii&quot; :0, &quot;ss&quot; : 0 }</li>
+<li>&nbsp;&nbsp;&nbsp; },...</li>
+<li>]</li></ul>
+
+<ul class="comment"><li>focus 0 跟 1 有什˙麼差別阿??</li>
+<li>在時間軸上是否為粗體顯示 ( 表示較重要的事件 )</li>
+<li>了解!</li>
+<li>還有我們好像沒有 category 的分類 ，只有 tag&nbsp; XD，我這邊用 tag 篩?</li>
+<li>新增 full 時間欄位。</li></ul>
+
+<p><b>事件 Event</b></p><p></p><undefined><li><b><u>REQUEST :&nbsp;</u></b></li></undefined>
+<ul style="list-style: none;"><li><br/></li>
+<li><a href="http://sunflower-documentary-api.herokuapp.com/api/1.0/events"></a>http://sunflower-documentary-api.herokuapp.com/api/1.0/events</li></ul>
+<ul><li><b>data/events/###(event_id).json</b></li><ul style="list-style: none;"><li><br/></li></ul>
+</ul>
+<undefined><li><b><u>RESPONSE :&nbsp;</u></b></li></undefined>
+<ul class="code"><li>[</li>
+<li>&nbsp;&nbsp;&nbsp; {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;event_id&quot;: 1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;title&quot;: &quot;兩岸經貿如何影響民主？&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;description_ch&quot;: &quot;逐字在此&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;description_en&quot;: &quot;英文逐字在此&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;site&quot;: &quot;濟南路&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;thumbnail&quot;: [&quot;img/event/1.jpg&quot;],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;media&quot;: [</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;<a href="https://www.youtube.com/watch?v=UKbOavrerNQ&t=53m37s"></a><a href='https://www.youtube.com/watch?v=UKbOavrerNQ&amp;t=53m37s'/>https://www.youtube.com/watch?v=UKbOavrerNQ&amp;t=53m37s</a>&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;<a href="https://www.youtube.com/watch?v=UKbOavrerNQ&t=53m36s"></a><a href='https://www.youtube.com/watch?v=UKbOavrerNQ&amp;t=53m36s'/>https://www.youtube.com/watch?v=UKbOavrerNQ&amp;t=53m36s</a>&quot;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;tag&quot;: [</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { &quot;id&quot;: 1, name&quot;: &quot;街頭民主教室&quot; },</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { &quot;id&quot;: 2, name&quot;: &quot;太陽花&quot; },...</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;hackpad_ch&quot;: &quot;<a href="https://318.hackpad.com/--F0W0Fnhkakl"></a><a href='https://318.hackpad.com/--F0W0Fnhkakl'/>https://318.hackpad.com/--F0W0Fnhkakl</a>&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;hackpad_en&quot;: &quot;&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;date&quot;: {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;full&quot; : 2014-03-21T00:00:00+08:00,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;yyyy&quot; : 2014, &quot;mm&quot; : 3, &quot;dd&quot; : 21,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;hh&quot; : 0, &quot;ii&quot; :0, &quot;ss&quot; : 0 }</li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li>]</li></ul>
+<ul class="comment"><li>新增英文逐字稿的欄位</li>
+<li>新增 full 時間欄位</li></ul>
+
+<p><b>標籤 Tags</b></p><p></p><undefined><li><b><u>REQUEST :&nbsp;</u></b></li></undefined>
+<ul style="list-style: none;"><li><br/></li>
+<li><a href="http://sunflower-documentary-api.herokuapp.com/api/1.0/tags"></a><a href='http://sunflower-documentary-api.herokuapp.com/api/1.0/events'/>http://sunflower-documentary-api.herokuapp.com/api/1.0/</a><a href='http://sunflower-documentary-api.herokuapp.com/api/1.0/tags'/>tags</a></li></ul>
+<ul><li><b>data/tags.json</b></li><ul style="list-style: none;"><li><br/></li></ul>
+</ul>
+<undefined><li><b><u>RESPONSE :&nbsp;</u></b></li></undefined>
+
+<ul class="code"><li>[</li>
+<li>&nbsp;&nbsp;&nbsp; { &quot;id&quot; : 1, &quot;name&quot; : &quot;街頭民主教室&quot; },...</li>
+<li>]</li></ul>
+
+<p><b>組織列表 Groups</b></p><p></p><undefined><li><b><u>REQUEST :&nbsp;</u></b></li></undefined>
+
+<ul style="list-style: none;"><li>暫無資料</li></ul>
+<ul><li><b>data/groups.json ( 組織列表 )</b></li><ul style="list-style: none;"><li><br/></li></ul>
+</ul>
+<undefined><li><b><u>RESPONSE :&nbsp;</u></b></li></undefined>
+
+<ul class="code"><li>[</li>
+<li>&nbsp;&nbsp;&nbsp; {&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;id&quot; : 1 ,&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot; : &quot;組織 A&quot; ,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;logo&quot; : &quot;img/group/1.jpg&quot; ,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;intro&quot; : &quot;組織介紹 A&quot;</li>
+<li>&nbsp;&nbsp;&nbsp; },...</li>
+<li>]</li></ul>
+
+<p><b>無名英雄 Characters</b></p><p></p><undefined><li><b><u>REQUEST :&nbsp;</u></b></li></undefined>
+<ul style="list-style: none;"><li><br/></li>
+<li>暫無資料</li></ul>
+<ul><li><b>data/characters.json ( 無名英雄組織列表 )</b></li><ul style="list-style: none;"><li><br/></li></ul>
+</ul>
+<undefined><li><b><u>RESPONSE :&nbsp;</u></b></li></undefined>
+
+<ul class="code"><li>[</li>
+<li>&nbsp;&nbsp;&nbsp; {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;id&quot; : 1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot; : &quot;陳OO&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;group_id&quot; : 1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;history&quot; :</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;經歷一&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;經歷二&quot;,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;經歷三&quot;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;link&quot; :</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { &quot;title&quot; : &rsquo;連結1&rsquo;, &quot;url&quot; : &rsquo;<a href="http://g0v.tw"></a><a href='http://g0v.tw/'/>http://g0v.tw</a>&rsquo;},</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { &quot;title&quot; : &rsquo;連結2&rsquo;, &quot;url&quot; : &rsquo;<a href="http://g0v.tw"></a><a href='http://g0v.tw/'/>http://g0v.tw</a>&rsquo;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;intro&quot; : &quot;人物簡介&quot;</li>
+<li>&nbsp;&nbsp;&nbsp; },...</li>
+<li>]</li>
+<li><br/></li></ul>
+
+<p><b>文宣列表 Literature</b></p><p></p><undefined><li><b><u>REQUEST :&nbsp;</u></b></li></undefined>
+<ul style="list-style: none;"><li><br/></li>
+<li>暫無資料</li></ul>
+<ul><li><b>data/literature.json ( 文宣列表 )</b></li><ul style="list-style: none;"><li><br/></li></ul>
+</ul>
+<undefined><li><b><u>RESPONSE :&nbsp;</u></b></li></undefined>
+<ul style="list-style: none;"><li><br/></li>
+<li>暫無資料</li></ul>
+
+<undefined><li><br/></li></undefined>
+<h2>討論資料結構</h2><p>（<a href='https://drive.google.com/folderview?id=0B6ASgY1GMSOhWmFBMDFuZWt1LUE&amp;usp=sharing'/>開個臨時的檔案庫</a>）</p><p>現況：正在設計新的表格了～文播組～</p><ul class="comment"><li>表格接近完成，4/22會上線(開放第一周給大家開始接力)做逐字，本週內會完成相關連結建置～</li></ul>
+<p>2014-04-05／只准「零時政府」用電　議場插電有分階級？（2014-04-05中天新聞／記者唐薏程、黃琡雯）</p><p>濟南路／2014-04-02_1950to／by 劉宇庭／.mp4&nbsp;</p><p></p><p></p><p></p></body>
+</html>
