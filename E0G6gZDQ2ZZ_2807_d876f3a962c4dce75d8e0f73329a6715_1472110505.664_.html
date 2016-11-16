@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="2807"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$E0G6gZDQ2ZZ</title>
+</head>
+<body><h1>公務出國報告查詢統計網</h1><p></p><h2>簡介</h2><p>政府的公務出國考察經常被認為是在消化預算[注1]或是出國旅遊[注2]，在資源分配上也備受質疑[注3]。本計畫希望能夠整合各公務出國資訊網的資料，使公務出國的狀況能以更直觀方式呈現，也提供更方便的管道查詢報告。</p><p></p><p>[注1]：到2015年底為止的統計，10~12月的出國次數即佔了超過33%，而1~3月僅佔11%多。</p><p>[注2]：如各種&quot;傑出人員出國觀摩&quot;。</p><p>[注3]：地方政府的公務出國，第一名台北市的次數及超過第二至五名的加總(高雄、台中、新北、屏東)。</p><p></p><h2>目的</h2><ul class="task"><li>統合原本分散於中央以及各縣市公務出國資訊網的資料</li></ul>
+<ul class="taskdone"><li>對考察的主題、前往地區、年份、月份等項目進行統計</li></ul>
+<ul class="task"><li>結合花費資料</li></ul>
+<ul class="comment"><li>電子採購網找過了，用的名稱跟報告名稱大多不同，結合不了</li></ul>
+<ul class="task"><li>找出剪貼報告</li></ul>
+<ul class="comment"><li>想先從對維基百科的抄襲下手，可是不知道要如何比對......</li>
+<li>有辦法人工比對採樣知道抄襲的範例嗎?可以嘗試用NLP做判定,但須要先知道特徵</li></ul>
+<ul class="taskdone"><li>提供更加方便、快速的查詢功能</li>
+<li>提供資料接口</li></ul>
+<ul class="comment"><li>請問跟這個有相關嗎&nbsp;</li>
+<li><a href='/nOWhTpJPKx7'/>公務員出國考察追蹤網</a> / <a href='/--nr1Rzlaxaop'/>公務人員考察網 - 專案目前狀態</a> / <a href='/k0M36hQn4ay'/>出國考察報告：手動閱讀心得整理區</a> 坑主：Bert Wang</li>
+<li>方向類似，但基本上是獨立的</li>
+<li>主要是因為那個專案已經停好一陣子了</li>
+<li>所以另外挖坑</li>
+<li>加油，我也希望..</li></ul>
+
+<h2>專案目前狀況</h2><p>網址：<a href="http://catding.twbbs.org/report/index.php"></a>http://catding.twbbs.org/report/index.php</p><p>github：<a href="https://github.com/catdingding/report"></a><a href='https://github.com/catdingding/report'/>https://github.com/catdingding/report</a></p><p></p><p><b>正在進行</b></p><p></p><undefined><li><b><s>標案比對</s>(已放棄)</b></li></undefined>
+<p>目的：比對標案名稱與出國計畫名稱，獲取公務出國的標案金額</p><p></p><p>目前進度</p><ul><li>相關標案資料抓取完畢</li>
+<li>用斷詞系統輔助，進行(粗劣的)比對</li></ul>
+
+<p>遇到的困難</p><ul><li>有很多的公務出國計畫名稱和標案名稱相差太多，能比對出來的目前不到1成......</li></ul>
+
+<undefined><li><b>抄襲比對</b></li></undefined>
+<p>目的：比對出報告中的抄襲部分(目前以抄襲維基百科的部分為目標)</p><p></p><p>預計比對步驟</p><ol><li>找出報告中地點類的詞</li>
+<li>檢查資料庫內有無該條目內文，已有則直接跳到第4步驟</li>
+<li>抓取維基百科的該條目內文，並放進資料庫</li>
+<li>進行比對</li></ol>
+
+<p>目前進度</p><ul><li>.pdf、.doc、.docs、.odt檔的內文提取準備完成</li></ul>
+
+<p>遇到的困難</p><ul><li>不容易找出相關的條目，因為目前使用的斷詞系統在遇到國外地名時常會分錯</li></ul>
+
+<p><b>已完成目標</b></p><ul><li>定時抓取各資訊網的資料(更新速度：2日/次)()</li>
+<li>查詢、統計(總統計與各年、單位、主題......統計)、圖表生成、報告資料頁面製作完畢</li>
+<li>前後端分離(大部分)</li></ul>
+
+<p><b>待解決</b></p><ul><li>金門縣的公務出國網維護中（超過１個月）</li>
+<li>新竹市的公務出國資訊網格式不同，且僅有部分欄位，尚未整合</li>
+<li><s>出國期間填寫錯亂</s>(放棄處理)</li>
+<li><s>報告頁數填寫錯亂</s>(放棄處理)</li>
+<li><s>主題分類重複（例：教育、教育文化皆為主題分類）</s>(放棄處理)</li>
+<li><s>人員名單未妥善填寫（例：姓名寫&quot;ooo等4人&quot;）</s>(放棄處理)</li>
+<li>資料庫查詢效能有待提升</li></ul>
+
+<h2>統計結果</h2><p>以下皆統計至2015年底、皆不含新竹市及金門縣</p><p></p><ul><li>一到四季公務出國次數的比例分別約為：11%、24%、31%、33%</li>
+<li>最常前往的地區：美國、中國大陸、日本</li>
+<li>公務出國次數的逐年變化：到2013年基本上皆逐年上漲，但2014、2015皆略為降低</li>
+<li>政府分布：中央佔75%、台北市佔8%、高雄市佔3.4%、台中市佔1.8%</li>
+<li>主題分布：前三名為教育文化(含教育)、財政經濟、公共工程</li></ul>
+
+<undefined><li>統計結果 QA</li></undefined>
+<p>Q: 年份分布那張圖，為何考察次數逐年增長</p><p>A:</p><ul style="list-style: none;"><li>2008後，<a href='http://catding.twbbs.org/report/diychart.php?area=%E4%B8%AD%E5%9C%8B%E5%A4%A7%E9%99%B8&amp;kind=year'/>前往中國大陸的次數</a>大幅增長(相對於其他地區)</li>
+<li><a href='http://catding.twbbs.org/report/diychart.php?office=%E5%A4%A7%E5%AD%B8&amp;search=similar&amp;kind=year'/>大學的出國交流、招生活動、學術考察等持續增加</a></li></ul>
+
+<p>Q: 月份分佈，為何<a href='http://catding.twbbs.org/report/diychart.php?kind=month'/>12 月到一月會陡降</a>？</p><p></p><p>Q: 天數分佈，超過 30 天的行程都在做什麼</p><p>A: 有一部分特別長的，是出國進修。</p><p></p><p>Q: 單位分佈，<a href='http://catding.twbbs.org/report/search.php?office=%E5%8F%B0%E7%81%A3%E9%9B%BB%E5%8A%9B%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&amp;down=1'/>台電</a>的是在多什麼</p><p>A: 進修、會議、技術相關占多數</p><p></p><p>Q: 主題分佈，為何教育主題卻是最多？</p><p>A: <a href='http://catding.twbbs.org/report/search.php?office=%E5%A4%A7%E5%AD%B8&amp;search=similar'/>大學佔了約9000筆</a>的公務出國。</p><p></p><p>Q: 政府分佈，為何台北市比其他市多那麼多</p><p>A:&nbsp;</p><ul style="list-style: none;"><li>有不少部分是台北的學校貢獻的</li>
+<li>例：<a href='http://catding.twbbs.org/report/element/office/%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%A4%A7%E5%AD%B8'/>臺北市立大學</a>(其他縣市沒有市立大學)、<a href='http://catding.twbbs.org/report/diychart.php?office=%E9%AB%98%E7%B4%9A%E4%B8%AD%E5%AD%B8&amp;search=similar&amp;kind=office'/>各高中(公務出國次數前10的高中都在台北市)</a></li>
+<li><br/></li>
+<li>另外還有捷運也占了很大的比例</li>
+<li>包含了<a href='http://catding.twbbs.org/report/element/office/%E8%87%BA%E5%8C%97%E5%B8%82%E6%94%BF%E5%BA%9C%E6%8D%B7%E9%81%8B%E5%B7%A5%E7%A8%8B%E5%B1%80'/>臺北市政府捷運工程局</a>和<a href='http://catding.twbbs.org/report/element/office/%E8%87%BA%E5%8C%97%E5%A4%A7%E7%9C%BE%E6%8D%B7%E9%81%8B%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8'/>臺北大眾捷運股份有限公司</a></li></ul>
+
+<p>Q: 月份、天數、單位、主題、政府分佈，是否隨年份有任何變化或趨勢？</p><p>A:</p><ul style="list-style: none;"><li>月份：看不出來</li>
+<li>天數：略降(不明顯)</li>
+<li>主題：2005財政最多=&gt;2010、2015教育都最多</li>
+<li>政府：大多都持續增長，少部分持平</li></ul>
+
+<h2>實作細節</h2><p></p><p><b>前端</b></p><ul><li>使用jQuery</li></ul>
+
+<p><b>後端</b></p><ul><li>採用php+mysql</li>
+<li>使用curl抓取資料</li>
+<li>用PDO連接資料庫</li></ul>
+<ul class="comment"><li>也許可以在匯入資料庫同時產出一份 json 格式放進 github 公開？方便大家混搭使用 ;)</li>
+<li>可以參考 <a href="https://github.com/g0v/foundationtw/blob/master/bin/cron.php"></a>https://github.com/g0v/foundationtw/blob/master/bin/cron.php 作法</li>
+<li>感謝建議，目前是打算寫api讓其他使用者拉，預計7月正式推出</li>
+<li>2016/07/10更新 目前採用的做法是在提供api+提供資料表下載</li></ul>
+
+<p><b>資料分析</b></p><p>R 套件 <a href="https://github.com/ChihChengLiang/abroadplayr"></a>https://github.com/ChihChengLiang/abroadplayr</p><p></p><h2>徵求協作者</h2><p>fb社團：<a href="https://www.facebook.com/groups/1125748634116081/"></a>https://www.facebook.com/groups/1125748634116081/</p><ul><li>介面設計師</li>
+<li>前端工程師</li>
+<li>後端工程師</li>
+<li>文案編寫</li>
+<li>有公務出國考察經驗者</li>
+<li>任何有興趣的人</li></ul>
+
+<h2>抄襲範例</h2><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_E0G6gZDQ2ZZ_p.535877_1470506202183_Image 6.png'/></p><ul class="comment"><li>Catdingding++</li>
+<li>8/14 使用感想：</li>
+<li>1.覺得報告查詢 / 圖表生成 / 統計資料 同一頁面出現兩次略為重複，要不要一排就好?</li>
+<li>2.報告查詢部分一開始看到條件輸入有點頭暈腦脹，識別碼 / 計畫名稱 / 參訪機關 / 施政分類感覺對我很生疏，不知有沒有必輸入或是可以更簡單或有說明 (針對條件輸入)</li>
+<li>3.喜歡統計資料的功能 (不知顏色是否可以變 囧囧rz 要求好多喔!!)</li>
+<li>每個圖藍藍的想可不可有別的顏色呢?❤(◕‿◕:emoji_273F: )</li>
+<li>4.圖表生成也是好棒的功能</li>
+<li>小小小疑問：</li>
+<li>首頁專案簡介的注一請問是從哪一年開始統計到2015年底?? (///▽///)</li>
+<li>物件頁面其實第一時間不太懂是說什麼 (對這個名詞的理解 (｡･ˇ_ˇ･｡))</li></ul>
+
+<ul class="comment"><li>8/15使用感想</li>
+<li><br/></li>
+<li><br/></li></ul>
+
+<p><b>統計資料可以進行的研究(想到什麼就打什麼) 0821</b></p><p></p><ol><li>統計有哪些單位沒有提供資料--根據周陽山監委的報告，現在中央都要交，但沒交的情況很普遍。而對於地方來說，則是全面地方自治，雖然有命令沿用，但地方不公開的情況甚為普遍。要促進群眾動員，可以做一個簡單的統計，統計所有沒交的單位，然後就可以做一個簡單的請願網站，按一下就自動寄給選區的議員與立委要求該選區公務員要公開資料或修改法規。</li></ol>
+<ul class="comment"><li>我有跟周陽山監委寄信要資料，以下是收到的回信，會繼續問下去(97-99的完整版資料)</li>
+<li>宏恩先生：</li>
+<li>謝謝來函。由於我的監委任期已結束，要再向監察院調用資料有困難。你可以寫信給監察</li>
+<li>院司法委員會主祕王增華女士，她是我的博士指導學生，請其協助。具體作法是，寫一正</li>
+<li>式信函給監察院，説明你撰寫論文需要調用原女公調查資料，經過相關單位（應該是內政</li>
+<li>委員會）同意，可以正式取得。由於本案並非機密案，取得應不困難。我個人只保留正式</li>
+<li>的調查報告，原始資料係由調查官保存，完成報告後全宗資料在監察院列檔保留，必須根</li>
+<li>據上述程序取用，用完歸檔。</li>
+<li>祝你順利。並頌</li>
+<li>學安</li>
+<li>周陽山謹覆</li></ul>
+<ol><li>另一方面，也可以用統計分析，觀察公開跟不公開的縣市村里間是否有顯著差別，例如假如發現赤字越高的縣市公開率越低，那就可以寫新聞稿了。可以用Ｚero inflation 迴歸or Decision Tree Analysis</li>
+<li>繼續以公開為自變數，可以研究說公開之後是否該縣市的赤字就開始下降，或者根本沒影響。不過因為有資料短缺，所以在推論上會有內生性與bias(有公開的報告都是還好的，更糟的都不公開)，因此可能要先透過propensity matching來解決。</li>
+<li>然後就現有資料的部份，雖然不完整，但可以先跑一些有趣的統計。首先，縣市赤字跟出國人次的關係。法規說每年要通盤檢討嘛，那到底有沒有根據前一年赤字減少出國數呢？這可以跑跨年跨區的時間序列分析，但需要每年度每縣市的數據，尤其要注意五都整併。另外可以跑的東西，就是假如有縣市議員出國資料，就可以看說他們出國後隔年提案數是增加還是減少(增加就是出國考查有學到東西了、減少就是被買通了不要搗亂)</li>
+<li>根據墨西哥的侍從主義研究，招待出國這種事應該有選舉週期，選前跟當選後前金後謝，假如選輸了就沒資源了、政黨輪替或知道選不贏了就會亂花錢等等，所以應該，可以觀察到以四年為單位的週期(事實上，我看苗栗縣就很明顯，每到選舉年出國人就大增)，可以更有系統更全面的做。</li>
+<li>其實我看了現在的分佈，中央部會出國在一年內都很平均，而教育單位都是7月最多，這兩者都很合理，而且我詢問的審計部的官員，他們都說出國提案要一到兩年前就提好了，審很嚴，所以不可能積到年底才忽然想出國。相較之下，積到年底才出國最明顯的是縣市議會以及鄉民代表，這很合理，地方議員助理說他們會嚴審地方政府的出國，但不會嚴審自己人的。這也暗示著在統計分析時可以分成中央與地方、民選與非民選來分析。</li>
+<li>最下面的縣市議員跟鄉民代表的規定為何呢？法律有規定每年撥一筆錢，好像是5萬吧，所以理論上民選官員們無論高低階都是每年可以出國，但到底他們要怎麼報帳怎麼請款、鄉民代表層級的又是怎麼做，我還要先去訪談看看</li>
+<li>有縣市議員助理聽到年底出國最多覺得資料是假的，因為他們說年底大家都在審預算超忙，根本沒空出國。倒是有時縣市長出國時手頭會有好幾個名額帶議員去，因為去能曝光，所以議員都會想辦法抽籤擠進去。</li></ol>
+
+</body>
+</html>

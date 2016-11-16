@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="1246"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$pOqWiKPcGwT</title>
+</head>
+<body><h1>超農域：開發日誌</h1><p></p><p>規格與資訊放在原本的 pad，開這篇專門紀錄進度、事件、現況、列舉下次聚會議程。 (如果有漏掉人請幫我 invite XD)</p><p></p><p><b>綜盒許願池</b></p><p><a href="https://github.com/g0v/agriculture/issues"></a>https://github.com/g0v/agriculture/issues</p><p></p><h2>Next</h2><p><b>吃飯松</b></p><p><b>小松</b></p><p>10</p><p><b>2014/08/30 第十次大松</b></p><ul><li>實作<ul><li>實裝子龍版首頁</li>
+<li>CSS 換成 SCSS</li></ul>
+</li>
+<li>使用者回饋<ul><li>安全採收有些資料被寫在詳細資料內 → feedback data provider</li>
+<li>需要列表 layout&nbsp;</li>
+<li>客製欄位顯示 (以及輸出的時候也是客製化)</li>
+<li>作物 grouper order：大分類 → 自然序</li>
+<li>客製 order</li></ul>
+</ul>
+<p>松前自幹偷跑松</p><ul><li>查無資料顯示</li>
+<li>優化 render</li>
+<li>detail render ROD</li>
+<li>劑型放進詳細資料</li>
+<li>grouping prototype</li>
+<li>因為同一種類型的藥劑，可能因為不同廠商製作(配方不同)，而可能有不同的毒性，所以沒有辦法單純對卡片做整片標色，下面是草擬的三種毒性呈現方法，應該還可以有更多更好的方法:<ul><li>1、2打圈和橫條</li></ul>
+</ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_pOqWiKPcGwT_p.81090_1408948645292_type-1.jpg'/><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_pOqWiKPcGwT_p.81090_1408948645300_type-2.jpg'/></p><ul><li>另外一個就是整塊變色，但是有不同的毒性，整塊的顏色就有兩塊不同的顏色這樣</li>
+<li>目前子龍有新的設計(在詳細資料內分類列出就好)</li>
+<li>官方的農藥關標示是長這樣</li></ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_pOqWiKPcGwT_p.81090_1408949065492_doc23-3.jpg'/></p><h2>Past</h2><p><b>2014/08/02 小松</b></p><p>規劃</p><ul><li>算一下到年底前大約還有幾次聚會，排一下進度。<ul><li>功能：共田查詢</li>
+<li>資料：<b>毒性標示</b>以及<b>作用機制[縮寫，ex: FRAC M5]</b>標示(10 月初前最好)</li></ul>
+</ul>
+<ul class="comment"><li>10底~11月中這段時間是常見的公務單位期末報告階段，</li>
+<li>很適合在這之前先讓目標單位認為這樣的計畫有其影響力</li><ul><li>功能：顯示產品圖</li>
+<li>功能：顯示產品廠商</li>
+<li>功能：bookmark (我的最愛)<ul><li>每張卡片可以打星號</li>
+<li>可以針對有打星號的部份單獨列印成 PDF 之類的小卡</li></ul>
+</li>
+<li>安全採收期旁邊或下方加入&quot;<a href='https://consumer.fda.gov.tw/Law/PesticideList.aspx?nodeID=520'/>殘留容許量</a>&quot; (資料來源 衛服部)&nbsp;</li>
+<li>除了卡片模式以外，也提供傳統表格型式讓試驗改良場所或有需要的人可以便於利用</li></ul>
+</ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_pOqWiKPcGwT_p.81090_1407028671953_undefined'/></p><ul><li><br/></li>
+<li><br/></li>
+<li>未來可以加入參考的病蟲以及藥劑圖片，供民眾更實際圖片上的參考</li></ul>
+<p>設計</p><ul><li>農藥搜尋頁面<ul><li>左右對齊</li>
+<li>劑型放進詳細資料</li>
+<li>稀釋倍數放進基本資料</li>
+<li>作用機制放進基本資料</li>
+<li>毒性標示<ul><li><a href="http://pesticide.baphiq.gov.tw/web/briefDetailView.aspx?sn=32"></a>http://pesticide.baphiq.gov.tw/web/briefDetailView.aspx?sn=32</li>
+<li><a href='https://github.com/g0v/agriculture/issues/13'/>g0v/agriculture#13</a></li></ul>
+</li></ul>
+</li>
+<li>農域主視覺定調</li>
+<li>農藥界面視覺統整</li>
+<li>想一下如何運用子龍畫的大圖與 logo<ul><li>首頁 mock up<ul><li><a href='https://www.dropbox.com/s/knapgu36psok3re/%E8%BE%B2%E8%97%A5%E9%A6%96%E9%A0%81.zip'/>農藥首頁.zip</a></li></ul>
+</ul>
+</ul>
+
+<p><b>2014/6/21 第九次大松</b></p><p>預定：</p><ul><li>Icon / favicon</li></ul>
+<ul class="comment"><li>我可協助設計的部分</li></ul>
+<ul><li>作物分類問題 (大概要下次)<ul><li>從廠商登記格式切入</li></ul>
+</li>
+<li>Review design</li>
+<li>Review pesticide usage search prototype<ul><li><a href="http://g0v.github.io/agriculture/pesticide/usages/"></a>http://g0v.github.io/agriculture/pesticide/usages/</li>
+<li>如何顯示 search highlight</li></ul>
+</ul>
+<p><img src='http://i.imgur.com/PlTEurx.png'/></p><ul><li>進階 search 介面</li>
+<li>依藥劑/作物/病害分類</li>
+<li>劑型是否需要用中文呈現或說明<ul><li>結論：以中文為主，附代號 (括號或 tooltip)</li></ul>
+</li>
+<li>Detail 內缺項是否要顯示</li>
+<li>寬度設計</li>
+<li>作用機制(縮寫) 的呈現方法，以及相同機制或選項集中呈現 (grouping)</li></li>
+<li>類似購物網站的&quot;依價格、依照片有無&quot;這種的集中呈現需求，例如依安全採收期、依劑型...</li></li>
+<li>這個功能當初有猜到所以有留實作空間，但是要知道需要哪些選項。一開始是打算先有藥劑、作物、病害。</li>
+<li>交叉查詢介面</li></ul>
+<ul class="comment"><li>2、3、4種作物共同、非共同可用藥劑查詢</li>
+<li>拼公務單位的高層有感(?)的話這個可以先生出來</li></ul>
+
+<p>成果</p><ul><li>今天最大的收穫就是發現了很多強大的農藥名稱<ul><li>其中最強大的就是托福毆殺滅</li></ul>
+</li>
+<li>阿平也畫了農業娘</li>
+<li>子龍畫了一張 logo</li>
+<li>design idea：格子狀的搜尋結果排版</li></ul>
+
+<p><b>2014/5/22 小松 (併第四次萌典松)</b></p><ul><li>最近農藥篇副本狂開，坑已經到達一種很恐怖的量!!!(副本持續加開中)</li>
+<li>目前重要副本種類: 神農的作物分類樹(作物種類定義)、娜塔雅的藥劑混合交集(不同作物間的共用藥劑)、凱因的武器作用機制(藥劑作用機制標定)</li>
+<li>子龍畫了農業娘</li>
+<li><a href='/926nwUKC90j'/>5 moed4ct&nbsp;</a></li></ul>
+
+<p></p><p></p></body>
+</html>
