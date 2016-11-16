@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="3447"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$Hackfoldr-2.0-forkme</title>
+</head>
+<body><h1>Tutorial: Hosting your own Hackfoldr 2.0</h1><p><i>In other languages:</i></p><ul><li>中文版 (zh) - <a href="http://g0v.hackpad.com/Hackfoldr-2.0-hackfoldr-G7i"></a>http://g0v.hackpad.com/Hackfoldr-2.0-hackfoldr-G7i…</li></ul>
+
+<h2>What is Hackfoldr 2.0</h2><p>Hackfoldr is a convenience web folder to store links for your collaborated OSS projects.</p><p></p><p>A sample folder - <a href="http://folder.moztw.org/hackfolder_template"></a>http://folder.moztw.org/hackfolder_template</p><p></p><p><b>How does it work</b></p><p>The hackfoldr use ethercalc.org sheet as live configating file. Every row of the sheet represent a link. You can also set the link to open in new window, add subfolder, or append colored label.</p><p></p><h2>Hosting your own Hackfoldr</h2><p><i>It&rsquo;s easy as fork &amp; customize</i></p><p></p><p><b>Benefit</b></p><ul><li>Use your own domain name and customize the landing page.&nbsp;<ul><li>For example, <a href="http://beta.hackfoldr.org/"></a>http://beta.hackfoldr.org/ linked to ethercalc.org/welcome-to-hackfoldr</li>
+<li>And <a href="http://folder.moztw.org/"></a>http://folder.moztw.org/ linked to <a href='https://ethercalc.org/moztw'/>ethercalc.org/moztw</a>, which stored all docs related to MozTW, Mozilla Taiwan Community.</li></ul>
+</li>
+<li>You will be able to enable <a href='https://github.com/moztw/hackfoldr-moztw/blob/gh-pages/help-menu.html'/>the hidden shortcut menu</a> on your own instance.</li></ul>
+
+<p><b>Step 0: Getting Started</b></p><p>You will need the following to proceed:</p><ol><li>A domain name</li>
+<li>A github account</li></ol>
+
+<p><b>Step 1: Fork Hackfoldr 2.0 repo</b></p><ol><li>Go to <a href="https://github.com/hackfoldr/hackfoldr-2.0-forkme"></a>https://github.com/hackfoldr/hackfoldr-2.0-forkme</li>
+<li>Click the top right “fork” button</li></ol>
+
+<p><b>Step 2: Edit CNAME file in gh-pages branch</b></p><ol><li>Go to your shiny new hackfoldr repo</li>
+<li>Switch to &quot;gh-pages&quot; branch with top left branch dropdown button&nbsp;</li>
+<li>click to open “CNAME” file in root directory</li>
+<li>click the pencil button at top right side to edit the CNAME file</li>
+<li>put your domain in the CNAME file</li><ul><li>make sure the CNAME file contains only one single line</li>
+<li>example: <a href="https://github.com/moztw/hackfoldr-moztw/blob/gh-pages/CNAME"></a>https://github.com/moztw/hackfoldr-moztw/blob/gh-pages/CNAME</li></ul>
+</ol>
+
+<p><b>Step 3: Set up your DNS</b></p><p>Add a CNAME record of your domain, and set the destination to “_YOUR_GITHUB_ACCOUNT_.github.io”</p><p></p><p>Example for Amazon Router 53:</p><ul><li>name: _YOUR_DOMAIN_NAME_<ul><li>e.g. folder.moztw.org</li></ul>
+</li>
+<li>type: CNAME</li>
+<li>value: _YOUR_GITHUB_ACCOUNT_.github.io<ul><li>e.g. moztw.github.io</li></ul>
+</li>
+<li>ttl: 300</li></ul>
+
+<p>Example for Cloudflare:</p><ul><li>CNAME: _YOUR_GITHUB_ACCOUNT_.github.io<ul><li>e.g. etblue.github.io</li></ul>
+</li>
+<li>Page Rule: <a href="http://etblue.github.io/+"></a><a href='http://etblue.github.io/+'/>http://etblue.github.io/+</a> forward <a href="http://etblue.github.io"></a><a href='http://etblue.github.io/'/>http://etblue.github.io</a><ul><li>Reference - <a href="http://blog.cloudflare.com/introducing-pagerules-url-forwarding/"></a><a href='http://blog.cloudflare.com/introducing-pagerules-url-forwarding/'/>http://blog.cloudflare.com/introducing-pagerules-url-forwarding/</a></li></ul>
+</ul>
+
+<p><b>Step 4: Customize your Hackfoldr</b></p><ol><li>Clone the <a href='https://ethercalc.org/hackfolder_template'/>template sheet</a> into new ethercalc sheet and named whatever SLUG you want</li>
+<li>Switch to gh-pages branch of your fork repo</li></ol>
+<ul style="list-style: none;"><li>Thanks Github for their wonderful <a href='https://help.github.com/articles/user-organization-and-project-pages/#project-pages'/>Project Page</a> feature, that we don&rsquo;t need to rent a server for hosting.</li></ul>
+<ol><li>Edit index.html file (click on pencil) and adjust the following settings</li><ul><li>Change the linked ethercalc SLUG on <a href='https://github.com/hackfoldr/hackfoldr-2.0-forkme/blob/gh-pages/index.html#L3'/>line 3</a>&nbsp;</li></ul>
+<ul class="code"><li>Adjsut the drop-down menu as you wish in &lt;div class=&quot;menu&quot;&gt;</li></ul>
+<ul><li>If you would like to use hackpad page generate feature, adjust default hackpad site on <a href='https://github.com/hackfoldr/hackfoldr-2.0-forkme/blob/gh-pages/index.html#L644'/>line 644</a>&nbsp;</li>
+<li>Clone everything from index.html to 404.html</li></ul>
+</ol>
+
+<p><b>You&rsquo;ve done all the work!&nbsp;</b></p><p>Be patient and wait for everything (especially the domain name record) to be active. It shouldn&rsquo;t be too long for your hackfoldr to be ready, typically no longer then 10 mins.</p><p></p><h2>Development</h2><p>Please refer to <a href='/Developing-Hackfoldr-2.0-nIlIQRMVfyc'/>this docs</a> (in Chinese for now) or <a href='https://github.com/hackfoldr/hackfoldr-2.0-forkme/blob/master/README.md'/>README</a> for contributing.</p><p></p></body>
+</html>
