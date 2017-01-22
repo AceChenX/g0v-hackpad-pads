@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="3862"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$z0XwS5cmyg9</title>
+</head>
+<body><h1>鄉民關心你 - API</h1><p></p><p>Version: 0.1</p><p></p><h2>Background</h2><p>The backend is custom pgrest and the api is compatable with <a href="https://support.mongolab.com/entries/20433053-rest-api-for-mongodb"></a><a href='https://support.mongolab.com/entries/20433053-rest-api-for-mongodb'/>https://support.mongolab.com/entries/20433053-rest-api-for-mongodb</a></p><p></p><p>this api is possibled changed by implemented within json-ld (<a href="https://www.youtube.com/watch?v=tRTD2W4W8G4)"></a><a href='https://www.youtube.com/watch?v=tRTD2W4W8G4'/>https://www.youtube.com/watch?v=tRTD2W4W8G4</a>)</p><p></p><p><b>Auth</b></p><p></p><p>GET /auth/facebook # authenticated by facebook account. (default enabled)</p><p>GET /auth/twitter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # authenticated by twitter account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default disabled)</p><p>GET /auth/google&nbsp;&nbsp;&nbsp;&nbsp; # authenticated by gooogle account&nbsp;&nbsp;&nbsp; (default disabled)</p><p>GET /me&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get authenticatied user profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default disabled)</p><p>GET /logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # logout</p><p>GET /logged&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # return true if user is authenticatied otherwise return false</p><p></p><h2>User</h2><p></p><p>PUT /collections/users/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # update a user</p><p>GET /collections/users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get all user</p><p>GET /collections/users/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get a user</p><p></p><ul><li><b>id</b>: user id</li>
+<li><b>username</b>: The name of this user, suitable for display.</li>
+<li><b>name</b>:&nbsp;<ul><li><b>familyName:</b>The family name of this user, or &quot;last name&quot; in most Western languages.</li>
+<li><b>givenName:</b>The given name of this user, or &quot;first name&quot; in most Western languages.</li>
+<li><b>middleName: </b>The middle name of this user.</li></ul>
+</li>
+<li><b>display_name</b>: the name a user want to display in the system</li>
+<li><b>photos</b>: array</li></ul>
+
+<p><b>User Preferences</b></p><p></p><p>GET /collection/user_prefs/{user id} #get a user preference</p><p>PUT /collection/user_prefs/{user id} #get a user preference</p><p></p><ul><li><b>user_id: </b>user id</li>
+<li><b>prefer_poston:</b> which system user prefer to use for posting a message (twitter/facebook/kunasim)</li>
+<li><b>subscriptions</b><ul><li><b>tags: </b>subscribed tags</li></ul>
+</ul>
+
+<p><b>Bookmarked Items</b></p><p></p><p>POST /collections/bookmarks/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # create a bookmarked item</p><p>GET /collections/bookmarks/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get all bookmarked items</p><p>GET /collections/bookmarks/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get a bookmarked item</p><p>PUT /collections/bookmarks/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # update a bookmarked item</p><p>DELETE /collections/bookmarks/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # delete a bookmarked item (won&rsquo;t delete resolved items, e.x article)</p><p></p><ul><li><b>id: </b>Item id</li>
+<li><b>normal_url:</b> The original url for the added item</li>
+<li><b>resolved_id:</b> A unique identifier for the resolved item</li>
+<li><b>resolved_type:</b> The type resolved item belongs to</li>
+<li><b>date_resolved:</b> The date the item was resolved</li>
+<li><b>date_happend: </b>事件發生的時間</li>
+<li><b>author:author</b></li>
+<li><b>tags: </b>Array of tags</li>
+<li><b>messages: </b>associated messages</li>
+<li><b>in_inbox: </b>false or true</li></ul>
+
+<p><b>Articles (belongs to resolved items)&nbsp;</b></p><p></p><p>POST /articles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # create a article</p><p>GET /articles/{article id}&nbsp;&nbsp;&nbsp; # get a article</p><p></p><ul><li><b>id: </b>article id</li>
+<li><b>title: </b>article title</li>
+<li><b>permanent_url: </b>permanent url of original article.</li>
+<li><b>summary</b>: article summary</li>
+<li><b>fulltext</b>: aticle full content&nbsp;</li>
+<li><b>date_published</b>: The date the item was published&nbsp;</li>
+<li><b>sources: </b>Array of sources where the article from</li>
+<li><b>has_images: </b>0: no image; 1: has an image in the body of the article; 2: is an image</li>
+<li><b>images</b>: Array of image data&nbsp;</li>
+<li><b>has_videos: </b>0: no video; 1: has a video in the body of the article; 2: is a video</li>
+<li><b>videos</b>: Array of video data&nbsp;</li>
+<li><b>has_diffs: </b>0: no; 1: has multiple versions</li>
+<li><b>diffs: </b>Array of changes if this article has multiple version</li></ul>
+
+<p><b>WebPages&nbsp; (belongs to resolved items)&nbsp;</b></p><p></p><p>POST /webpages&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # create a webpages</p><p>GET /webpages/{item_id}&nbsp;&nbsp;&nbsp; # get a webpages</p><p></p><ul><li><b>id</b>: web page id</li>
+<li><b>title</b>: article title</li>
+<li><b>summary: </b>summary of web page</li>
+<li><b>permanent_url: </b>permanent url of original article.</li>
+<li><b>date_published: </b>The date the item was published&nbsp;</li>
+<li><b>domain</b>: domain of url</li>
+<li><b>has_images: </b>0: no image; 1: has an image in the body of the article; 2: is an image</li>
+<li><b>images</b>: Array of image data&nbsp;</li>
+<li><b>has_videos: </b>0: no video; 1: has a video in the body of the article; 2: is a video</li>
+<li><b>videos</b>: Array of video data&nbsp;</li></ul>
+
+<p><b>Tags</b></p><p></p><p>POST /tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # create a tag</p><p>GET /tags/{tag name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get a tag by name</p><p>GET /tags/{id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # get a tag by id</p><p></p><ul><li><b>id: </b>tag id</li>
+<li><b>name: </b>tag name</li>
+<li><b>authors: </b>Array of authors</li></ul>
+
+<p></p><p></p><p></p></body>
+</html>

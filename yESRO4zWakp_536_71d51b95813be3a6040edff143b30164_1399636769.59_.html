@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="536"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$yESRO4zWakp</title>
+</head>
+<body><h1>開放政治獻金 - 人工校對、OCR網站設計</h1><p>初步資料處理、OCR 討論請見 <a href='/3MX5pBhtBjZ'/>OCR</a>, 之後需要人工校對</p><p></p><p><b>待校對的資料</b></p><ul><li><a href="http://campaign-finance.g0v.ronny.tw/"></a><a href='http://campaign-finance.g0v.ronny.tw/'/>http://campaign-finance.g0v.ronny.tw/</a> 這邊是 Ronny 放的 API 連結(輸入 index, 輸出切出來的圖檔)，讓大家可以自由界接來做資料處理界面</li></ul>
+
+<p><b>網站介面設計</b></p><ul><li>設計政治獻金資料呈現介面</li><ul class="task"><li>wireframe</li>
+<li>mockup</li>
+<li>proto</li></ul>
+</ul>
+<ul><li>網站設計可參考<ul><li>口袋國會的政治獻金查詢頁面 <a href="http://xn--6or66eo1t8u6a.tw/part5_2_detail.php?sno=1"></a><a href='http://xn--6or66eo1t8u6a.tw/part5_2_detail.php?sno=1'/>http://xn--6or66eo1t8u6a.tw/part5_2_detail.php?sno=1</a></li>
+<li>第八屆立委選舉經費 <a href="http://ccw.site44.com/"></a><a href='http://ccw.site44.com/'/>http://ccw.site44.com/</a></li>
+<li>maplight <a href="http://maplight.org/us-congress/legislator/127-robert-aderholt"></a><a href='http://maplight.org/us-congress/legislator/127-robert-aderholt'/>http://maplight.org/us-congress/legislator/127-robert-aderholt</a></li></ul>
+</li>
+<li>Layout提案</li></ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_yESRO4zWakp_p.143126_1398306662763_開放政治獻金001.jpg'/></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_yESRO4zWakp_p.143126_1398306681863_開放政治獻金002.jpg'/></p><ul><li>icon：<ul><li><a href="https://drive.google.com/folderview?id=0B0jawSySD8E3VXpnaWQyQ3VQQWc&usp=sharing"></a><a href='https://drive.google.com/folderview?id=0B0jawSySD8E3VXpnaWQyQ3VQQWc&amp;usp=sharing'/>https://drive.google.com/folderview?id=0B0jawSySD8E3VXpnaWQyQ3VQQWc&amp;usp=sharing</a></li></ul>
+</ul>
+<ul class="comment"><li>有任何建議請在這邊留言即可～</li>
+<li>請補授權方式，並建議將檔案搬移到<a href='https://drive.google.com/#folders/0B0NsS2a-Qx8ZN19uV1p6YWd6TXc'/>這裡</a>。</li>
+<li>（看懂後自刪）新手問題：嗯...怎麼標記授權方式？cc？</li></ul>
+
+<p><b>目前實作</b></p><ul><li>顯示 OCR 結果、校對介面<ul><li>Timothy Lee 做了一個 <a href="https://github.com/ctiml/campaign-finance.g0v.ctiml.tw"></a><a href='https://github.com/ctiml/campaign-finance.g0v.ctiml.tw'/>https://github.com/ctiml/campaign-finance.g0v.ctiml.tw</a></li></li>
+<li>實際上線畫面 - <a href="http://campaign-finance.g0v.ctiml.tw/cell"></a><a href='http://campaign-finance.g0v.ctiml.tw/cell'/>http://campaign-finance.g0v.ctiml.tw/cell</a></li></ul>
+</li>
+<li>clkao這是跑 Server Script?</li></li>
+<li>背景可以弄黑色嗎? 白色很傷眼?</li></ul>
+
+<p><b>各種對網站的建議</b></p><ul class="comment"><li><a href='https://github.com/kiang/tw-campaign-finance/issues/5'/>（來亂） 建議可以增加積分功能&nbsp; 來鼓勵大家來人工OCR</a>&nbsp;</li><ul class="task"><li>快捷鍵（hotkeys）<ul class="task"><li>空白鍵等於按「這是空白」</li><ul class="comment"><li>原建議來自<a href='https://groups.google.com/forum/#!topic/g0v-general/IBFzyI1hOH4'/>這裡</a></li></ul>
+</ul>
+</ul>
+<ul class="task"><li>輸入次數在n(=3?)次以下的時候不提示給user看，否則第一個人打錯就不容易發現，尤其是異體字</li>
+<li>提供回上一步的功能，不然按太快就回不去了</li>
+<li>取眾數而非以最後一筆輸入為準</li></ul>
+</ul>
+
+<ul class="task"><li>以直行為單位分開設計，「+1」扭可能要拆成「數字關」「日期關」「收支項目關」「是否關」「地獄打字關」還可以配合成就系統<ul class="task"><li>因為是監察院倒出來的，本來就是資料庫的型式，逆回去可以增加除錯率</li>
+<li>數字關不可能出現文字(收入欄跟支出欄)</li>
+<li>收支項目關只有那十幾種，可以只用滑鼠點(收支項目欄)</li>
+<li>日期關可以只輸入YYYMMDD，還可以檢查YYY要介於０９０～１０５，MM。DD也是</li>
+<li>是否關可以用滑鼠</li>
+<li>有一欄是身份證字號，统編，和匿名，可以分快篩關跟地獄身份證關，统編關</li>
+<li>如果每一列需要一個key值的話，建議用日日期+序號+名稱，應該可以找到唯一值</li>
+<li>可能要幫每一行加1~2個分類欄</li>
+<li>這應該很快，把現有的複製出來，改讀取的範圍跟輸入的界面就好了</li></ul>
+</ul>
+
+<p>浮水印圖例</p><ul><li>彌補日後可能的自動化去除仍有疏漏可能</li></ul>
+<ul class="comment"><li>原建議來自<a href='https://groups.google.com/forum/#!topic/g0v-general/IBFzyI1hOH4'/>這裡</a></li></ul>
+
+<p>開放政治獻金遊戲</p><ul><li>［成就］、［記分］、［挑戰］、［排名］<ul><li>參考 <a href='http://orteil.dashnet.org/cookieclicker/'/>Cookie Click</a></li>
+<li>延伸閱讀 <a href='http://www.books.com.tw/web/sys_serialtext/?item=0010578430'/>台灣為什麼重要？&nbsp;</a></li></ul>
+</ul>
+<ul class="comment"><li>原建議來自<a href='https://groups.google.com/forum/#!topic/g0v-general/togJIxA_7Xk'/>這裡</a></li></ul>
+
+<p>Captcha 系統</p><ul><li>參考 <a href='https://captcha.net/'/>reCAPTCHA</a></li></ul>
+<ul class="comment"><li>原建議來自<a href='https://www.facebook.com/groups/g0v.general/permalink/609945902415153/?comment_id=610269255716151&amp;offset=0&amp;total_comments=25'/>這裡</a></li></ul>
+
+<p>原住民姓名輸入提示</p><ul><li>參考<a href='https://github.com/g0v/twly-voter-guide/issues/21'/>這裡</a>，當原住民之傳統姓名或漢人姓名，以傳統姓名之羅馬拼音並列</li></ul>
+<p>時，建議中間手動補一個空格</p><p></p><p>&quot;這答案沒錯&quot;的位子</p><ul><li>再稍微往右邊一點，固定住會比較方便後續使用者確認，點選速度應該會比較快，不用滑鼠移來移去的，現在會依照確認的訊息長度位子會變換</li></ul>
+
+</body>
+</html>

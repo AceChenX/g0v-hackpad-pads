@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="2384"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$ml1Hdx1ZUeb</title>
+</head>
+<body><h1>災害預防資訊平台</h1><p></p><p><b>WHY?</b></p><p>&nbsp;&nbsp;&nbsp; Summit 2016第一天才知道KNY介紹的<a href='http://kny.cc/post/140009881874/kny-app-taiwan-weather-eew-earthquake-early-warning'/>強震即時警報APP</a>。同時，KNY也提到了消防署其實早就有製作好各縣市各鄉里的疏散避難地圖的<a href='http://www.nfa.gov.tw/main/ftplist.aspx'/>疏散指南</a>。 如果能夠將疏散避難地圖做成一個傳送地理資訊並回傳即時的疏散方向及路線，就可以結合其它的警報APP，盡可能的降低傷亡。&nbsp;</p><p>&nbsp;&nbsp;&nbsp; 目前先著重在資訊整合。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p><b>Respositories</b></p><ul><li><a href='https://github.com/jsgao0/Evacuation'/>WEB</a></li>
+<li><a href='https://github.com/jsgao0/EvacuationRESTful'/>RESTful</a></li></ul>
+
+<p><b>TODO [Website] </b><a href="https://evacuation-web.herokuapp.com/"></a><b>https://evacuation-web.herokuapp.com/</b></p><ul class="taskdone"><li>收容所位置改以地圖區域性呈現</li></ul>
+<ul class="task"><li>找出所有收容所marker的中心點</li>
+<li>顯示不合格(收容所容納人數低於該里總人口數)的村里。</li></ul>
+
+<p><b>TODO [API]&nbsp; </b><a href="https://evacuation-restful.herokuapp.com/"></a><b>https://evacuation-restful.herokuapp.com/</b></p><ul class="taskdone"><li>縣市列表 [GET /counties]</li>
+<li>鄉鎮列表 [GET /:county_id/towns]</li>
+<li>村里列表 [GET /:town_id/villages]</li>
+<li>村里長 [GET /:town_id/:village_id/village-head]</li>
+<li>村裡人口 [GET /:town_id/:village_id/population]</li>
+<li>收容所列表 [GET /:town_id/:village_id/shelters]</li></ul>
+<ul class="task"><li>災害應變中心</li>
+<li>消防單位</li>
+<li>警察單位</li></ul>
+
+<p><b>TODO [JSON Data]</b></p><ul class="taskdone"><li><a href='https://evacuation-restful.herokuapp.com/data/villageList.json'/>村里列表</a></li>
+<li><a href='https://evacuation-restful.herokuapp.com/data/villageHead.json'/>村里長列表</a>&nbsp;</li>
+<li><a href='https://evacuation-restful.herokuapp.com/data/villagePopulation.json'/>村里人口列表</a></li>
+<li><a href='https://evacuation-restful.herokuapp.com/data/villageFitShelterList.json'/>村里預設避難收容所列表</a></li></ul>
+<ul class="task"><li>消防單位列表</li>
+<li>災害應變中心列表</li>
+<li>警察單位列表</li></ul>
+
+<p><b>TODO [資料匯入]</b></p><ul class="taskdone"><li>匯入村里列表 [7855]</li>
+<li>匯入<a href='http://data.moi.gov.tw/MoiOD/Data/DataDetail.aspx?oid=F4478CE5-7A72-4B14-B91A-F4701758328F'/>人口資料</a>&nbsp; [7074]</li>
+<li>匯入<a href='http://data.gov.tw/node/12849'/>避難收容所開設情形開放資料</a> [已補齊] [資料更新為上次災害，開放情形非現況]</li></ul>
+<ul class="task"><li>匯入<a href='http://data.gov.tw/node/6943'/>災民收容所資料</a></li></ul>
+<ul class="taskdone"><li>匯入<a href='http://data.gov.tw/node/7061'/>村里長資料</a>&nbsp; [7243]</li></ul>
+<ul class="task"><li>匯入<a href='http://data.gov.tw/node/5969'/>各地區消防單位及災害應變中心資料</a> TBC: 消防分隊管轄、區域災害應變中心確認</li>
+<li>匯入<a href='https:// http://data.gov.tw/node/5958'/>各地區警察單位資料</a> TBC: 警察單位管轄範圍確認</li></ul>
+
+<p><b>TODO [BUGs]</b></p><ul class="task"><li>人口、避難收容所、里長沒資料時，頁面資料不更新。&nbsp;</li></ul>
+
+<p><b>TODO [OTHERS]</b></p><ul class="task"><li>比較消防及警察單位與<a href='http://data.gov.tw/node/gov/resource/2853'/>為民服務通訊錄</a>之差異。</li>
+<li>疏散路線計算，<a href='http://www.movable-type.co.uk/scripts/latlong.html'/>距離</a>、是否開設。</li>
+<li>地震發生後最怕掉落物傷人，市區高樓建築多，震完馬上跑到戶外會不會反而造成民眾受傷? [<a href='https://www.facebook.com/groups/g0v.general/permalink/990110464398693/?comment_id=991910707552002&amp;notif_t=group_comment&amp;notif_id=1463637350194835'/>LINK</a>]</li></ul>
+
+<h2>History</h2><p><b>2016/05/20</b></p><ul style="list-style: none;"><li>村里長短缺列表</li></ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_ml1Hdx1ZUeb_p.621706_1463736785096_螢幕快照 2016-05-20 下午5.25.16.png'/></p><ul style="list-style: none;"><li>人口資料短缺列表</li></ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_ml1Hdx1ZUeb_p.621706_1463736964711_螢幕快照 2016-05-20 下午5.32.25.png'/></p><ul style="list-style: none;"><li><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_ml1Hdx1ZUeb_p.621706_1463736938626_螢幕快照 2016-05-20 下午5.32.25.png'/></li></ul>
+<ul class="comment"><li>資料並非真的短缺，而是中文字的配對出問題，需要手動修正村里名稱罕見字的對應才有辦法順利匯入</li>
+<li>有需要幫忙嗎&nbsp; ？</li></ul>
+
+</body>
+</html>

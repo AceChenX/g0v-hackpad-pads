@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="5635"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$vtLwiUfYgcc</title>
+</head>
+<body><h1>全國重度級急救責任醫院急診即時訊息</h1><p>源頭 : 衛服部網頁</p><p>URL:&nbsp; <a href="http://www.mohw.gov.tw/CHT/DOMA/DM1_P.aspx?f_list_no=608&fod_list_no=4680&doc_no=43081"></a><a href='http://www.mohw.gov.tw/CHT/DOMA/DM1_P.aspx?f_list_no=608&amp;fod_list_no=4680&amp;doc_no=43081'/>http://www.mohw.gov.tw/CHT/DOMA/DM1_P.aspx?f_list_no=608&amp;fod_list_no=4680&amp;doc_no=43081</a></p><p>資料來源 : 各醫院網頁&nbsp;</p><p></p><h2>目前進度</h2><p>Dashboard: <a href="http://er.mohw.g0v.tw/"></a>http://er.mohw.g0v.tw/</p><ul class="comment"><li>Q1:怎樣可以save modified as default ?<ul class="comment"><li>現在不行，先用 export</li></ul class="comment">
+</li>
+<li>Q2: hospital_sn 要改為醫院名嗎? 或者要提供對應?</li>
+<li>我先加了一個 hack, 現在應該只剩下左上角沒有對應到名稱</li>
+<li>Q3: 可否將醫院依地區或縣市排列或分組？</li></ul>
+
+<h2>功能許願池（許願時請盡量提供可用的資料來源）</h2><ul class="comment"><li>10/14, 我把許願的「．」改成了 checkbox 「囗」(以方便認確該功能是否完成)</li>
+<li>若有 github 帳號的可以逕行於<a href='https://github.com/g0v/er.mohw'/>本專案的 repo</a> 開issue.</li></ul>
+<ul class="task"><li>顯示他院轉診、老人留觀、重症急救、急症急救、一般病人等資訊（原始建議連結 <a href="http://on.fb.me/1nHz1l9"></a><a href='http://on.fb.me/1nHz1l9'/>http://on.fb.me/1nHz1l9</a>）</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><ul class="task"><li>建議新增「急救與重症床已滿」</li></ul>
+<ul class="comment"><li>請問有哪修醫院有提供此資訊？是否有範例？</li>
+<li>應該沒有醫院會公布醫護比唷，因為評鑑的時候為了滿足評鑑要求都會「調整」。如果去看病的時候發現整層病房突然裝修或關閉，通常代表評鑑要到了。剛想到醫策會辦理的醫療評鑑的資料裡面可能會有，但是好像沒有考慮開放。</li>
+<li>了解 急救與重症床已滿的資訊應該是政府資訊那邊才有 我再找找</li></ul>
+
+<ul class="task"><li>不知道能否顯示「急診壅塞度指標」(NEDOCS)<a href="http://hsc.unm.edu/emermed/nedocs_fin.shtml"></a>http://hsc.unm.edu/emermed/nedocs_fin.shtml</li></ul>
+<ul style="list-style: none;"><li><b><a href='https://www.facebook.com/mu.hsueh.3'/>Mu Hsueh</a>&gt; </b>【選中的曲線 高亮顯示】</li>
+<li>預設　　　：全亮</li>
+<li>選中(複選)：暗&gt;&gt;&gt;&gt; 改成 亮</li>
+<li>未選中　　：亮&gt;&gt;&gt;&gt; 改成 暗</li>
+<li>**想看清要參考的醫院，需點選多次才能關掉其他曲線&gt;&gt;&gt;改成 可以直接顯示想看的曲線</li></ul>
+<ul class="comment"><li>可能要等 <a href='http://grafana.org/'/>Grafana opensource projet</a> 增加儲存個人化dashboard 比較可以滿足大家的需求 !</li></ul>
+
+<ul class="task"><li><b><a href='https://www.facebook.com/mu.hsueh.3'/>Mu Hsueh</a>&gt; </b>【醫院排序 依縣市 再依人數】 點選縣市名，可顯示此區醫院情況</li></ul>
+<ul style="list-style: none;"><li>例如：選取&quot;臺北市&quot;</li>
+<li>臺北市---(亮)&nbsp;&nbsp;&nbsp; 國泰&nbsp; 3(亮)&nbsp;&nbsp;&nbsp; 臺大&nbsp; 5(亮)&nbsp;&nbsp;&nbsp; 榮總 15(亮)&nbsp;</li>
+<li>新北市---(暗)&nbsp;&nbsp;&nbsp; 聯合&nbsp; 1(暗)&nbsp;&nbsp; 三總&nbsp; 2(暗)</li></ul>
+
+<ul class="task"><li>急診資訊地圖 (WIP): git repo: <a href="https://github.com/g0v/er-map"></a><a href='https://github.com/g0v/er-map'/>https://github.com/g0v/er-map</a></li></ul>
+<ul style="list-style: none;"><li>status: early development stage&nbsp;</li>
+<li>concept: 顯示最近的急診等待病床狀況</li>
+<li>concept: 如果結合各大醫院的急診科別資料(急診是有分科別的，不是到了急診什麼病都能看)，以及Google Map的地理圖資路程計算資料，我覺得可以進一步將資料化約成民眾可以使用的服務：&quot;急診去哪裡&quot;，輸入需要看的科別(如果知道的話)，以及所在位置，就能提供最近距離還有病床的急診醫院推薦</li>
+<li><br/></li></ul>
+<ul class="comment"><li>印象中救護車有緊急醫療的相關系統在管理，建議從那邊先著手？但這塊我不熟。</li>
+<li>如果是透過119 , 會有地區緊急醫療網負責, 所以在這個專案&nbsp; 等床數 vs 時間 比較重要;&nbsp; 但是安養中心(nursing home) 如果能有地圖顯示,&nbsp; 可能可以方便民眾選擇( 交通,&nbsp; 地理位置, 環境 etc)</li></ul>
+<ul class="code"><li>如果要顯示地圖, 也許可以考慮使用這種方式看看各縣市急診待床嚴重程度</li>
+<li><a href="http://technicaltidbit.blogspot.tw/2013/07/choropleth-in-d3js-and-pandas-ipython.html"></a><a href='http://technicaltidbit.blogspot.tw/2013/07/choropleth-in-d3js-and-pandas-ipython.html'/>http://technicaltidbit.blogspot.tw/2013/07/choropleth-in-d3js-and-pandas-ipython.html</a></li>
+<li><br/></li></ul>
+<ul class="task"><li>建議新增一般、中度急救責任醫院即時病床資料</li><ul class="comment"><li>這個要等醫院願意釋放資料才有辦法做(部分醫院有, 但是沒有&quot;即時&quot;) 通常醫院不會主動釋放資料; 主管機關不見得會強制醫院執行, 除非等到又有什麼事件發生</li></ul>
+</ul>
+
+<h2>InfluxDB 使用範例</h2><p></p><p>全部醫院急診等普通病房變化 ( 病房是否持續滿床)</p><p>&quot;select&nbsp; difference(pending_ward) from /ER.+/ where&nbsp; time &gt; now() - 24h&nbsp;&nbsp;&nbsp;&nbsp; group by time(20m)&nbsp; order asc&quot;</p><p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_vtLwiUfYgcc_p.61087_1407592316401_螢幕快照 2014-08-09 下午9.51.30.jpg'/></p><p></p><p>單一醫院查詢</p><p>&quot;select&nbsp; last(pending_ward) from &quot;ER.0601160016&quot; where&nbsp; time &gt; now() - 24h&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc&quot;</p><p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_vtLwiUfYgcc_p.61087_1407592485030_螢幕快照 2014-08-09 下午9.54.28.jpg'/></p><p></p><p>北區醫院待床總覽&nbsp;</p><ul class="comment"><li>是不是要弄個各區(或縣市)待床總覽 ?&nbsp; 另外我覺得default 用bar , stack(individual) 會比線圖要醒目, 並且左側有累積總人數, 是否突然爆滿一目了然</li>
+<li>因為有人抱怨資料太多不易辨認，是否能增加查詢介面讓使用者選擇地點，以較近距離的醫院優先列出呢?&nbsp;&nbsp;&nbsp; (像人在高雄的話，基本上不會跑到台北的醫院急診)</li></ul>
+<p>&quot;select&nbsp; last(pending_ward) from /ER&#92;.( 1101020018|1101100011|1301200010|0501110514|0601160016|0401180014|1101150011)/&nbsp; where&nbsp; time &gt; now() - 24h&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc&quot;</p><p>Display&nbsp; Styles:&nbsp; Multiple Seres : Stack 打勾,&nbsp; Stacked values &quot;individual&quot;&nbsp; =&gt; 鼠標移到顏色區域會顯示單一醫院數值</p><p><img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_vtLwiUfYgcc_p.61087_1407593742550_螢幕快照 2014-08-09 下午10.15.20.jpg'/></p><p></p><h2>使用資料</h2><p>influexdb SQL語法參考文件: <a href="http://influxdb.com/docs/v0.8/api/query_language.html"></a>http://influxdb.com/docs/v0.8/api/query_language.html</p><p></p><p>REST API:</p><p><a href='http://api-beta.ly.g0v.tw:8086/db/twer/series?u=guest&amp;p=guest&amp;q=select%20last(pending_ward)%20as%20ward,%20DIFFERENCE(pending_ward)%20as%20ward_diff%20from%20ER%20group%20by%20hospital_sn,%20time(1h)%20where%20time%20%3E%20now()%20-%2024h'/>最近 24hr 等待住院狀態</a>: select last(pending_ward) as ward, DIFFERENCE(pending_ward) as ward_diff&nbsp; from ER group by hospital_sn, time(1h) where time &gt; now() - 24h</p><p></p><p>手動選取資料：</p><p><a href="http://api-beta.ly.g0v.tw:8083/"></a>http://api-beta.ly.g0v.tw:8083/, 登入guest/guest&nbsp; twer 資料庫，執行 influxdb query (SQL-like):</p><p></p><p>[SQL 語法]</p><p>指定醫院</p><ul><li>等普通病床變化&nbsp;<ul><li>select&nbsp; difference(pending_ward) from &quot;ER.1142100017&quot; where&nbsp; time &gt; 1407542794s and time &lt; 1407560867s&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc</li></ul>
+</li>
+<li>等加護病床變化&nbsp;<ul><li>select&nbsp; difference(pending_icu) from &quot;ER.1142100017&quot; where&nbsp; time &gt; 1407542794s and time &lt; 1407560867s&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc</li></ul>
+</li>
+<li>普通病床等床&nbsp;<ul><li>select&nbsp; last(pending_ward) from &quot;ER.0421040011&quot; where&nbsp; time &gt; 1407542794s and time &lt; 1407560867s&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc</li></ul>
+</li>
+<li>指定區域 (北區)&nbsp;<ul><li>select&nbsp; last(pending_ward) from /ER&#92;.(</li></ul>
+</ul>
+<ul style="list-style: none;"><li>1101020018|1101100011|1301200010|0501110514|0601160016|0401180014|1101150011)/&nbsp; where&nbsp; time &gt; now() - 24h&nbsp;&nbsp;&nbsp;&nbsp; group by time(1h)&nbsp; order asc</li></ul>
+<ul class="comment"><li>請問區域有詳細清單嘛？ex:北區有哪幾家</li>
+<li>見下↓ <b>crawler 填表</b>&nbsp;</li>
+<li>感謝</li>
+<li><br/></li></ul>
+
+<p></p><p></p><h2>原始資料處理</h2><p>Aggregator: <a href="http://github.com/g0v/er.mohw"></a><a href='http://github.com/g0v/er.mohw'/>http://github.com/g0v/er.mohw</a>, grafana branch for local changes</p><p></p><p>資料每 20 分鐘塞入 influx db, 可以如此取得：</p><p></p><p>crawler 填表：<a href="https://ethercalc.org/twer"></a><a href='https://ethercalc.org/twer'/>https://ethercalc.org/twer</a></p><ul class="comment"><li>開始寫請先填表認領，卡關再到 irc 上求救</li></ul>
+
+<p>請幫忙確認，並在檢驗人處填上自己 id。</p><ul><li>crawler 產出格式(stdout)</li>
+<li>若 commandline 執行外還需要特別安裝其他東西也請註明。</li><ul class="comment"><li>python libs: requests ((其他應該可以直接import</li></ul>
+</ul>
+<ul><li>若醫院提供欄位有多或少也請註明</li></ul>
+<ul class="comment"><li>台大醫院有「等待掛號人數」</li></ul>
+<p><b>格式應為：</b></p><ul class="code"><li>{</li>
+<li>&nbsp; full_reported : true,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (bool) 向119通報滿床, null 表示未提供</li>
+<li>&nbsp; hospital_sn&nbsp;&nbsp; : &quot;0439010518&quot; // (string) 醫院代號 length = 10</li>
+<li>&nbsp; pending_doctor: 0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (integer) 等待看診人數</li>
+<li>&nbsp; pending_bed&nbsp;&nbsp; : 0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (integer) 等待推床人數</li>
+<li>&nbsp; pending_ward&nbsp; : 0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (integer) 等待住院人數</li>
+<li>&nbsp; pending_icu&nbsp;&nbsp; : 0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (integer) 等待加護病床人數</li>
+<li>&nbsp; update_time&nbsp;&nbsp; : 1407206929&nbsp;&nbsp; // (timestamp) null 表示原始資料未提供</li>
+<li>}</li></ul>
+
+<p>資料格式 : (很多都不是JSON, 而是單純HTML table)</p><ul style="list-style: none;"><li>醫院代號 : 1434020015&nbsp;&nbsp; ( <s>integer</s> string )</li>
+<li>更新日期 (update_time)： 2014/08/03 23:44:14 (<s>Date</s> timestamp)</li>
+<li>向119通報滿床 (full_reported): 是/否 ( bool )</li>
+<li>等待看診人數 (pending_doctor) : ( integer )</li>
+<li>等待推床人數 (pending_bed): ( integer )</li>
+<li>等待住院人數 (pending_ward) : ( integer )</li>
+<li>等待加護病床人數 (pending_icu): ( integer )</li>
+<li><br/></li></ul style="list-style: none;">
+<h2>layout</h2><p><b>產出預期成效:</b></p><ol><li>讓民眾得知目前各重症醫院 &quot;擁塞&quot; 程度</li>
+<li>重大疾病爆發時間時, 各重症醫院承受程度</li></ol>
+
+<h2>issues and talks</h2><p>FB g0v 討論區 <a href="https://www.facebook.com/groups/g0v.general/660961490646927/?notif_t=like"></a>https://www.facebook.com/groups/g0v.general/660961490646927/?notif_t=like</p><p></p><p>capture_time: ( or named grab_time ?)</p><ul class="comment"><li>還是應該是叫 crawling time XDDD or needn&rsquo;t this key(?</li>
+<li>repo 開在 <a href="https://github.com/lanfon72/twER_liveboard"></a><a href='https://github.com/lanfon72/twER_liveboard'/>https://github.com/lanfon72/twER_liveboard</a> (小更新要edit 1x 個 gist 網頁實在是太痛苦了...)</li>
+<li>目前有問題的是 print 的 json 要用[{ key:value }] , 還是直接 { key:value } ? ((感覺是直接用{}....</li>
+<li>fix as {...}</li></ul>
+
+<p>Hospital_sn:</p><ul class="comment"><li>Hosptial_SN(醫院代號) 有數字 0 開頭, 先用 str 了</li>
+<li>資料應該還有個 hospital_sn.. 補上去</li>
+<li>SN or sn ? QQ, and I use uppercase ICU QQQQQ ( bcz it&rsquo;s means &quot; Intensive Care Unit &quot; .</li>
+<li>其實我也不確定大小寫有沒有慣例.. Orz</li>
+<li>看來是都用小寫XD 只好改小寫了QQQ</li></ul>
+
+<ul class="comment"><li>醫院代號對照表及地址或座標？</li>
+<li><a href="http://www.nhi.gov.tw/webdata/webdata.aspx?menu=20&menu_id=712&webdata_id=660"></a><a href='http://www.nhi.gov.tw/webdata/webdata.aspx?menu=20&amp;menu_id=712&amp;webdata_id=660'/>http://www.nhi.gov.tw/webdata/webdata.aspx?menu=20&amp;menu_id=712&amp;webdata_id=660</a>, 當中的 <a href="http://www.nhi.gov.tw/Resource/webdata/8568_1_hospbsc.zip"></a><a href='http://www.nhi.gov.tw/Resource/webdata/8568_1_hospbsc.zip'/>http://www.nhi.gov.tw/Resource/webdata/8568_1_hospbsc.zip</a><a href='http://www.nhi.gov.tw/Resource/webdata/8568_1_hospbsc.zip%E5%8F%AF%E8%83%BD%E8%A6%81extract'/>&nbsp;</a> 可能要extract , 裡面格式 (分局別,醫事機構代碼,醫事機構名稱,機構地址,電話區域號碼 ,電話號碼,特約類別,型態別,醫事機構種類,終止合約或歇業日期)&nbsp;</li>
+<li>&quot;重度&quot; 醫療院所, 都是通過醫院評鑑, 所以變動大約一年一次</li>
+<li>醫事機構代碼 = 代號 (exp :&quot;1&quot;,&quot;1434020015&quot;,&quot;財團法人羅許基金會羅東博愛醫院&quot;,&quot;宜蘭縣羅東鎮南昌街８１、８３號及站前南路６１、６３號&quot;,&quot;03&quot;,&quot;9543131&quot;,&quot;2&quot;,&quot;01&quot;,&quot;A&quot;,&quot;&quot;)&nbsp;</li>
+<li><a href="http://data.gov.tw/node/6143"></a><a href='http://data.gov.tw/node/6143'/>http://data.gov.tw/node/6143</a> 只有地址電話，沒有代號</li>
+<li>請問 <a href='https://g0v.hackpad.com/ep/profile/A93H5P2uBrp'/>昕迪 李</a> 是不是有處理過這份資料？</li>
+<li>剛剛砍到 有用到工人智慧 <a href="https://gist.github.com/mcdlee/a3a7d55767e6f26fec44"></a><a href='https://gist.github.com/mcdlee/a3a7d55767e6f26fec44'/>https://gist.github.com/mcdlee/a3a7d55767e6f26fec44</a></li>
+<li>從 nhi.gov.tw parse 出來的醫院名稱和代號 <a href="http://cornguo.nlplab.tw/temp/hospital/parsed.txt"></a><a href='http://cornguo.nlplab.tw/temp/hospital/parsed.txt'/>http://cornguo.nlplab.tw/temp/hospital/parsed.txt</a></li>
+<li>光田醫療社團法人光田綜合醫院 只查得到一個代號</li>
+<li>有些 wiki 有 ((呃啊不過都填完了....</li>
+<li>醫院代號有 0 開頭和英文字母開頭，也有中間夾英文的，或許定成 string 比較好 (?)</li>
+<li>咦咦咦咦?! (((完全沒注意</li>
+<li>btw, 榮總的網站有點妙 →→ <a href="http://www.vghtpe.gov.tw/ser.html"></a><a href='http://www.vghtpe.gov.tw/ser.html'/>http://www.vghtpe.gov.tw/ser.html</a> ←←</li>
+<li>怎麼個妙法 @@?</li>
+<li>無法理解包兩次&nbsp; iframe 的用意XD... btw, 因為沒時間可以爬所以...update_time = &rsquo; per ten mins &rsquo;</li>
+<li>喔喔.. 我看到的好你拆出來的 iframe url，原來要看原始網頁 XD</li>
+<li>我猜大概是所有 content 都用 iframe 包 html，然後剛好那一頁又放了另外一個 iframe 指到別的地方去 ww</li>
+<li>表格怪怪的... 三總我剛沒爬........(au 說起來要爬就以就跳過惹..) 但格子裡面有東西QAQQQ</li>
+<li>表格歪掉了.. Orz</li>
+<li>用工人智慧整理一下好了</li>
+<li>看來只有幾格歪掉，現在應該正常了?</li>
+<li>fixed~ hackpad 的表格果然不能太期待(X)</li>
+<li>又歪掉了..&nbsp; 啊啊啊啊啊啊 Orz</li>
+<li>有種做錯動作會爆炸的感覺 QQ，已修正表格</li>
+<li>準備來去吃早餐惹XDDD ((留點坑給別人填 lol</li>
+<li>剛剛發現長庚的寫一次可以用好幾次.. 囧</li>
+<li>我要去睡覺了 Q___Q (← 睡前看到坑就跳下去)</li>
+<li>應該很容易 port 到其他語言，因為幾乎都是用 regExp 硬幹..</li>
+<li>regexp 超快XD</li>
+<li>真的，本來在想是不是用 shell script 就可以打完收工了 XD</li>
+<li>好啦晚安 (?) (趴床)</li>
+<li>北榮網頁是敝公司多年前 (超過五年) 用 JAVA 寫的，但是架構超爛 (當年的 PM 跟 PG 也都不在了所以無從問起)，然後因為北榮都沒簽任何維護費所以那個 iframe 是他們資訊室自己自幹的樣子 XD...&nbsp;</li>
+<li>超過五年感覺很神祕..</li></ul>
+
+<p>update_time:</p><ul class="comment"><li>有的似乎是直接顯示現在時間，所以應該要存 date retrieved &amp; display</li>
+<li>有的沒有顯示現在時間, 反而出現&quot;下次更新時間&quot;</li>
+<li>啊.. 我剛剛才發現要用 date，我的 script 是輸出 timestamp Q__Q</li>
+<li>來改一下貼上 gist 的 code.. QQ</li>
+<li>timestamp is better actually</li>
+<li>Hmm.. 所以要改成 timestamp 嗎?</li>
+<li>自問自答，看到表格上其他 commit 改成了 timestamp，那就從善如流吧</li>
+<li>請問有都修正成timestamp了嗎？ 我用<a href='http://api-beta.ly.g0v.tw:8086/db/twer/series?u=guest&amp;p=guest&amp;q=select%20last(pending_ward)%20as%20ward,%20DIFFERENCE(pending_ward)%20as%20ward_diff%20from%20ER%20group%20by%20hospital_sn,%20time(1h)%20where%20time%20%3E%20now()%20-%2024h'/>最近 24hr 等待住院狀態</a>這個範例抓出來的timestamp超迷的...</li>
+<li>自問自答：timestamp看來好像是毫秒單位，所以除以1000就對了</li>
+<li><br/></li></ul>
+<p>pending_icu:</p><ul class="comment"><li>是否有以上欄位的正式英文說法？好像有點長，我改一下簡短的</li>
+<li>好像沒有, 可能要再查看看</li>
+<li>業內人士直接發明說法吧!</li>
+<li>業內人士先走過留下痕跡，晚些時候來補。(不好意思我是高雄人，剛交班，目前累死...請先讓我睡，明天再說..........)</li>
+<li>ps.事實上可以直接從衛服部的資料庫調資料，只是我對這部分的資料後續處理完全不懂，所以還需要請資訊人才加以協助。</li>
+<li>&quot;衛服部的資料庫調資料&quot; : 是open data 嗎 ?</li>
+<li>open data...對醫院來說是，我們內部看到的就是一個表格，上面有所有的資料。(畢竟真的出事醫院人員也沒時間去各醫院網頁看資訊啊！但重點是那個系統得登入到衛服部才看的到)</li>
+<li>但對外就是各醫院網頁所揭露的資訊這樣...所以我不知道這樣算不算是open data？</li>
+<li>對<s>攻城獅</s>工程師來說...如果是 excel 表格的話轉成 csv 就可以算是 open data (? 但重點是要開放出來....(csv算是好用格式</li>
+<li>然後，我不知道那資料是csv還是html還是啥.....(我沒能力分辨，抱歉。)</li>
+<li>如果是登入才要的到的資料 =&gt; 不如直接抓網站上的, 日後還可以統計</li></ul>
+
+<p>iOS (native app):&nbsp;</p><p>ongoing: 不過遇到的第一個難題<s>是influxDB丟回來的json格式不對啊.... </s>library的問題正在查</p><ul class="comment"><li>select all : <a href="http://api-beta.ly.g0v.tw:8086/db/twer/series?u=guest&p=guest&q=select%20"></a>http://api-beta.ly.g0v.tw:8086/db/twer/series?u=guest&amp;p=guest&amp;q=select%20*%20from%20ER</li>
+<li>↑ ( select * from ER</li>
+<li>or others, try on <a href="http://api-beta.ly.g0v.tw:8083/"></a>http://api-beta.ly.g0v.tw:8083/</li>
+<li>可以了，on going</li>
+<li>++</li>
+<li>先這樣，其它就睡醒再說<img src='https://hackpad-attachments.s3.amazonaws.com/hackpad.com_vtLwiUfYgcc_p.222960_1407781521522_1.png'/></li></ul>
+
+<ul class="comment"><li>Beta version <a href="https://github.com/hearther/erMohw.iOS"></a>https://github.com/hearther/erMohw.iOS</li>
+<li><br/></li>
+<li><br/></li>
+<li><br/></li></ul>
+
+<h2>QA（貼粉絲頁前先社群訪問共筆一下）</h2><ul class="comment"><li>大家慢慢寫，截稿先設定週一晚間吧～</li></ul>
+<p><b>請問 Tom 發起砍柴的動念是？</b></p><p>tom&gt; 好像有一天看到醫院網站可以顯示急診等床狀況(一年前), 感覺好像可以收集起來做些什麼事.... 之後直到最近高雄氣爆事件, 發現如果能將急診塞車(塞人)的情形記錄下來, 應該很有幫助</p><p></p><p>tom&gt; 社群在氣爆事件發生之後提了幾個有趣的問題, 並引用當時各大醫院急診待床訊息的截圖 ( <a href="http://www.chihchih.net/2014/08/blog-post.html"></a>http://www.chihchih.net/2014/08/blog-post.html ).&nbsp; 這當中顯示出急診在平時就已經非常忙碌, 遇到重大災難, 很難有更好的機制解決問題.&nbsp;</p><p></p><p><b>急診資訊整合透明對現階段台灣醫療狀況的幫助？會有什麼應用？</b></p><p>tom&gt; 當重大災情(高雄氣爆)發生後,醫院急診室第一時間反應的單位. 當醫療人力不足是常態, 而急診大量傷病進入時, 就應該把資源留給緊急的病患; 不是太急的病人, 可以避開這個時段.&nbsp; 讓有限的醫療資源留給緊急需要的災民, 也是協助受災民眾的一種行動!&nbsp; 雖然衛福部已將各醫院等待住院人數的資訊聯結放在網頁上, 但使用上非常不便, 也無法讓民眾理解當下各醫院擁塞程度. 如何平時就讓民眾知道醫院負荷情形, 並且明白是否急診在特定時刻是擁擠的, 需要更好的方式呈現.&nbsp;&nbsp;</p><p></p><p><b>&nbsp;社群回應 (opendata 後, 拋磚引玉, 大家怎麼看?)</b></p><p>&nbsp;1. <a href="https://www.facebook.com/sillyduck.radiology/posts/850463091630701"></a>https://www.facebook.com/sillyduck.radiology/posts/850463091630701 : <b><a href='https://www.facebook.com/sillyduck.radiology?fref=ufi'/>I-Chen Tsai</a>&gt;</b> 對政策規劃者應該是個很好的工具，可以看出目前的醫療資源投入，造成患者流的哪些環節有明顯的阻滯。如果有一年四季的變化，以及各種突發事件的分析，就更深入的可以理解目前台灣醫療體系的負載。當然，前提是規劃者真的有想解決這些問題。</p><p>&nbsp;</p><p>&nbsp;<b><a href='https://www.facebook.com/edcckao?fref=ufi'/>Edward Chao-Chun Kao</a>&gt;</b> 這個網站最大的優點就是增加基礎資訊的能見度，對醫療領域不熟悉的人可能不知道這些數據的用途，但巷內人從這網站就應該能看出很多端倪，然後就可以再去尋找原因並採取行動。(ex.林口長庚的等待住院人數為何一直居高不下，等待推床人數為何突然爆增...)其次，台灣的新聞也好，政策也好，幾乎都習慣不給資料來源，一般民眾根本無法確認真偽。這樣的基礎數據除了可以提供媒體可靠且方便的資訊外，也可以讓每個人都多一個工具去查核新聞、政策、以及意見領袖的發言是否真的奠基在事實之上，還是有其他的目的。</p><p></p><p></p><p><b>有什麼進一步想像?</b></p><p>tom&gt; 1. 如果醫院能提供更直接的資料, 如單一病人&quot;急診待床時間&quot; (<a href="http://www.nursingcenter.com/lnc/journalarticle?Article_ID=1125043"></a><a href='http://www.nursingcenter.com/lnc/journalarticle?Article_ID=1125043'/>http://www.nursingcenter.com/lnc/journalarticle?Article_ID=1125043</a> by <a href="https://www.facebook.com/SuLing.Ya"></a>https://www.facebook.com/SuLing.Ya ) 可能可以更精確得知病床turnover 的情形, turnover 慢, 病床不夠, 護理人員不夠 都是直接影響民眾就醫權益</p><p>tom&gt; 2. 如果可以加上 “在地&quot; &quot;即時&quot; &quot;氣溫&quot; 的統計, 應該可以讓民眾了解, 天氣突然變化對心血管疾病的影響</p><p>tom&gt;3. 如果政府在策略上, 把 民眾需要的 data 一直放出來, 會有事半功倍的效果. 舉個例子, 如果臺北的病人中風一段時間, 該出院了, 需要安養機構長期照顧, 如果能提供合法立案的機構即時床位資訊, 以及相關介紹, 家屬就可以很快評估到底哪一家安養中心最適合, 加快出院速度. 只要上網查就可以,略知一二, 醫院出院轉介僅提供專業照會. 而安養中心業者也必須主動加把勁提升照護品質....(而不是降低價格, 虛應評鑑)</p><p></p><p>antoniocarlos&gt; 感謝 <a href='https://m.facebook.com/tom.shih.6?refid=52&amp;ref=bookmark&amp;__tn__=%2As'/>Tom Shih</a>的發起，醫界資訊能人和g0v仙人們的協助，架構了這麼一目瞭然的全國重度急救責任醫院即時網站。</p><p></p><p>所以咧，真的再度呼籲這個政府（還有想要成為下一任政府的），高手真的都在民間，政府只要充分的開放資料，剩下的民間自己來就行。我們不會奢望要求政府部門裁員減薪，眾爺兒們您繼續喝茶看報紙看了電視才知道都無妨，只要別盡搞些有的沒的來惹麻煩就好。</p><p></p><p><b>有些人會說「作這個也沒用，反正都滿床，醫生還是動輒得咎」，對這樣的說法可以怎麼回應？（許多 open data 應用初期都會有類似評語，可以累積一些想法 XD）</b></p><ul class="comment"><li><a href='http://www.moedict.org/#動輒得咎'/>動輒得咎</a> 的解釋</li></ul>
+<p>lanf0n&gt; 單一資料或許會有此類的問題，但在資料長期累積之後，可藉由數據統計出各院急診滿床的時段和頻率，以救護車送院時的參考。避免到院時剛好處於滿床的尖峰，而因轉院延誤治療時間。</p><p>mcdlee&gt; 求公佈各種檢傷級別的就診人數</p><p>tom&gt; 是否可以讓含急診的區域醫院也提供即時就診人數</p><p>jimyhuang&gt; 現在30-50歲的人，就是老人的家屬，也就是需要被廣泛知道現在醫療問題的對象，才不會自己之後沒醫療系統使用。抓bug常常並非一蹴可及，醫改也非藥到病除，何來沒用之說？</p><p></p><p><b>醫療團體有相關的改革訴求嗎？可否列舉。</b></p><p>ipa&gt; （自問自答）醫勞盟曾提出訴求，呼籲政府「不應該只公布「重度級」的醫院，而是全國的急救責任醫院都該公開「急診即時訊息」！」<a href="https://www.facebook.com/TMAL119/photos/a.118547204943363.20053.118446058286811/427292877402126/?type=1"></a>https://www.facebook.com/TMAL119/photos/a.118547204943363.20053.118446058286811/427292877402126/?type=1</p><p></p><p><b>是否有國外案例？</b></p><p><a href="http://www.dmc.org/ERWait/"></a>http://www.dmc.org/ERWait/</p><p></p><p><b>政府該做什麼協助醫療資訊公開以及促進真正的開放資料?</b></p><p></p><p></p></body>
+</html>

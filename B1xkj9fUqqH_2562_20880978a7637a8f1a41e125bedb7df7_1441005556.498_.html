@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="2562"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$B1xkj9fUqqH</title>
+</head>
+<body><h1>IoT 空污偵測 DIY</h1><p></p><h2>源起頭</h2><p><a href="https://www.facebook.com/pulipm2.5/posts/1583904825219960?hc_location=ufi"></a>https://www.facebook.com/pulipm2.5/posts/1583904825219960?hc_location=ufi</p><p><a href="http://logbot.g0v.tw/channel/g0v.tw/2015-04-19/18"></a>http://logbot.g0v.tw/channel/g0v.tw/2015-04-19/18</p><p><a href="http://logbot.g0v.tw/channel/g0v.tw/2015-04-19/61"></a>http://logbot.g0v.tw/channel/g0v.tw/2015-04-19/61</p><p></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440153799009_スクリーンショット 2015-08-21 18.42.50.png'/></p><p></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440153824132_スクリーンショット 2015-08-21 18.42.25.png'/></p><p></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440153841921_スクリーンショット 2015-08-21 18.42.31.png'/></p><p></p><p><b>目標</b></p><ul><li>夠便宜，能讓志願收集資料的人負擔得起</li>
+<li>夠準確，提供一般參考及學術研究</li>
+<li>畫出全台灣的 PM2.5 即時地圖</li></ul>
+
+<p></p><h2>AirCasting</h2><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440317592503_スクリーンショット 2015-08-23 16.12.31.png'/></p><ul><li><a href="http://aircasting.org/"></a>http://aircasting.org/ - USD$200<ul><li>(open hardware + open source, 元件列表在 <a href="http://www.habitatmap.org/habitatmap_docs/HowToBuildAnAirCastingAirMonitor.pdf"></a>http://www.habitatmap.org/habitatmap_docs/HowToBuildAnAirCastingAirMonitor.pdf page 8&nbsp; )&nbsp;</li>
+<li>ref: <a href="http://www.takingspace.org/"></a>http://www.takingspace.org/</li>
+<li>Aircasting 有測 PM2.5, 溫度, 濕度, CO, NO2, 然後配合其它零件，測噪音、心跳、活動率、活動率、核心溫度</li>
+<li>NO2 Aircasting 用的是&nbsp; MiCS 2710&nbsp;</li>
+<li>神榮 ppd42ns 淘寶40RMB，aircasting 拿 US$5.53</li><ul class="comment"><li>神榮 PPD42NS 其實不能測 PM2.5, 它測的是 1µm 的粒子，詳見 <a href="http://www.seeedstudio.com/wiki/index.php?title=Grove_-_Dust_Sensor_%E7%B2%89%E5%B0%98%E4%BC%A0%E6%84%9F%E5%99%A8&uselang=zh"></a><a href='http://www.seeedstudio.com/wiki/index.php?title=Grove_-_Dust_Sensor_%E7%B2%89%E5%B0%98%E4%BC%A0%E6%84%9F%E5%99%A8&amp;uselang=zh'/>http://www.seeedstudio.com/wiki/index.php?title=Grove_-_Dust_Sensor_%E7%B2%89%E5%B0%98%E4%BC%A0%E6%84%9F%E5%99%A8&amp;uselang=zh</a></li></ul>
+</ul>
+</ul>
+<p><b>AirQualityEgg</b></p><ul><li><a href="http://airqualityegg.com/"></a>http://airqualityegg.com/<a href='http://airqualityegg.com/USD'/> </a>USD $196 + addon (~ 60 USD)<ul><li><a href="http://shop.wickeddevice.com/product-category/air-quality-egg/"></a>http://shop.wickeddevice.com/product-category/air-quality-egg/</li>
+<li>NO2, CO</li></ul>
+</ul>
+<p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440317625582_スクリーンショット 2015-08-23 16.12.47.png'/></p><p></p><h2>DIY</h2><p><b>BOM Cost</b></p><table style="font-size:13px;cell-spacing: 0px; border-collapse: collapse;"><tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#38646;&#20214;</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#20729;&#26684;(&#21407;&#21934;&#20301;)</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#20729;&#26684;(TWD)</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#20633;&#35387;</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Sharp DN7C3CA006</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">135 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">675</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Arduino Nano</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">180</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#21487;&#25913;&#29992;&#21934;&#38982; IC (NT$55) &#25110; Arduino Pro/Mini (&#32004; 12RMB)</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">DHT-22</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">17 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">105</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">LCD1602</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">6 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">30</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#36984;&#37197;</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">ESP8266 ESP-01</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">13.8 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">70</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">MQ7 &#19968;&#27687;&#21270;&#30899;&#20597;&#28204;&#22120;</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">8 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">40</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#36984;&#37197;</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">WSP1110 NO2 &#24863;&#28204;&#22120;</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">150 RMB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">750</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#36984;&#37197;</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#38651;&#23481;&#12289;&#38651;&#38459; ...</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+</table>
+<p>小計 NT$1,850 (不含運費)</p><p>總之要比 US$200 便宜啊啊啊啊啊啊</p><p></p><p><b>各項零件</b></p><ul><li>Sharp gp2y1010au 測粉塵 <a href="https://www.sparkfun.com/datasheets/Sensors/gp2y1010au_e.pdf"></a><a href='https://www.sparkfun.com/datasheets/Sensors/gp2y1010au_e.pdf'/>https://www.sparkfun.com/datasheets/Sensors/gp2y1010au_e.pdf</a><ul><li>ICShopping NT$250 無風扇</li>
+<li>程式: &lt;<a href="http://lafudo.blogspot.tw/2013/12/arduino-gp2y1010au0fpm25.html"></a><a href='http://lafudo.blogspot.tw/2013/12/arduino-gp2y1010au0fpm25.html'/>http://lafudo.blogspot.tw/2013/12/arduino-gp2y1010au0fpm25.html</a>&gt;</li></ul>
+</li>
+<li>這顆沒辦法分辨 PM2.5</li></li>
+<li>新一代的 gp2y1012au 就可以了 ^^; 含風扇的型號 DN7C3CA006 要價 135RMB.</li>
+<li><a href='http://www.digikey.tw/product-detail/zh/DN7C3CA006/425-2896-ND/5114242'/>夏普 PM2.5傳感器 Dust Sensor第三代 DN7C3CA006</a>&nbsp;&nbsp;<ul><li><a href="http://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/DN7C3CA006_Spec.pdf"></a><a href='http://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/DN7C3CA006_Spec.pdf'/>http://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/DN7C3CA006_Spec.pdf</a></li>
+<li>淘寶 135RMB</li></ul>
+</li>
+<li>Arduino 一顆</li>
+<li>MQ9 一氧化碳、煤氣、液化瓦斯 / MQ5 液化石油氣、天然瓦斯 / MQ3 酒精蒸氣</li></ul>
+<ul class="comment"><li>&nbsp;應該改用 MQ7 只要測一氧化碳就好</li><ul><li>ICShopping NT$270 / MQ7 淘寶 6-8RMB</li>
+<li>&nbsp;&lt;<a href="http://www.seeedstudio.com/depot/grove-gas-sensormq9-p-1419.html?cPath=25_27"></a><a href='http://www.seeedstudio.com/depot/grove-gas-sensormq9-p-1419.html?cPath=25_27'/>http://www.seeedstudio.com/depot/grove-gas-sensormq9-p-1419.html?cPath=25_27</a>&gt;</li>
+<li>CO 感測器 <a href="http://goods.ruten.com.tw/item/show?21404014964757"></a><a href='http://goods.ruten.com.tw/item/show?21404014964757'/>http://goods.ruten.com.tw/item/show?21404014964757</a>&nbsp;&nbsp;</li>
+<li>專業的 NO2 感測器一顆報價 5 千</li>
+<li>WSP1110 NO2 平面傳感器</li>
+<li><a href="http://goods.ruten.com.tw/item/show?21312239079267"></a><a href='http://goods.ruten.com.tw/item/show?21312239079267'/>http://goods.ruten.com.tw/item/show?21312239079267</a></li>
+<li>NT$1230</li>
+<li>WiFi 模組 NT$275</li>
+<li>TI 3300?</li>
+<li>EST8266 (13.3RMB) 還不知道怎麼用<ul><li><a href="https://github.com/sandeepmistry/esp8266-Arduino/tree/master/esp8266com/esp8266/libraries/ESP8266WiFi"></a><a href='https://github.com/sandeepmistry/esp8266-Arduino/tree/master/esp8266com/esp8266/libraries/ESP8266WiFi'/>https://github.com/sandeepmistry/esp8266-Arduino/tree/master/esp8266com/esp8266/libraries/ESP8266WiFi</a></li>
+<li><a href="http://www.electrodragon.com/w/ESP8266_wiring_with_Arduino"></a><a href='http://www.electrodragon.com/w/ESP8266_wiring_with_Arduino'/>http://www.electrodragon.com/w/ESP8266_wiring_with_Arduino</a></li>
+<li><a href="http://zeflo.com/2014/esp8266-weather-display/"></a><a href='http://zeflo.com/2014/esp8266-weather-display/'/>http://zeflo.com/2014/esp8266-weather-display/</a></li>
+<li>淘寶 link: <a href="http://trade.taobao.com/trade/detail/tradeSnap.htm?spm=a1z09.2.9.26.PlkYeC&tradeID=947883827521695&snapShot=true"></a><a href='http://trade.taobao.com/trade/detail/tradeSnap.htm?spm=a1z09.2.9.26.PlkYeC&amp;tradeID=947883827521695&amp;snapShot=true'/>http://trade.taobao.com/trade/detail/tradeSnap.htm?spm=a1z09.2.9.26.PlkYeC&amp;tradeID=947883827521695&amp;snapShot=true</a></li>
+<li>ESP8266モジュールでArduinoからWi-Fiを使う<ul><li><a href="https://github.com/itead/ITEADLIB_Arduino_ESP8266"></a><a href='https://github.com/itead/ITEADLIB_Arduino_ESP8266'/>https://github.com/itead/ITEADLIB_Arduino_ESP8266</a><ul><li>上面這個是 GPLv2 所以我們的授權會被感染</li></ul>
+</li>
+<li><a href="http://ehbtj.com/electronics/esp8266"></a><a href='http://ehbtj.com/electronics/esp8266'/>http://ehbtj.com/electronics/esp8266</a></li></ul>
+</li>
+<li>我們買的 ESP8266 似乎比網路上的教學更新，但它對電源很敏感，直接接 FT232 甚至由外部供電都會沒辦法通訊。Arduino 可以。<ul><li>AT+GMR</li>
+<li>AT version:0.21.0.0</li>
+<li>SDK version:0.9.5</li></ul>
+</li></ul>
+</li>
+<li>溫濕度用 DHT-11 約 NT$55</li>
+<li>更準的話改用 DHT-22 約 NT$180<ul><li><a href="https://github.com/adafruit/DHT-sensor-library"></a><a href='https://github.com/adafruit/DHT-sensor-library'/>https://github.com/adafruit/DHT-sensor-library</a></li></ul>
+</li>
+<li>還想更準的話可以用 <a href='http://sensing.honeywell.com/honeywell-sensing-humidicon-hih6100-series-product-sheet-009059-6-en.pdf'/>HIH6130</a> 或 <a href='http://www.sensirion.com/fileadmin/user_upload/customers/sensirion/Dokumente/Humidity/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf'/>SHT15</a></li>
+<li>3G 找到最便宜的要 47 歐元</li></li>
+<li>應該用 GSM/GPRS 就夠了 <a href="http://seller.pcstore.com.tw/S134700302/C1021133941.htm"></a><a href='http://seller.pcstore.com.tw/S134700302/C1021133941.htm'/>http://seller.pcstore.com.tw/S134700302/C1021133941.htm</a></li></li>
+<li>好貴上面那個要 NT$1600 耶</li></li>
+<li>GSM/GPRS還有另一個選擇，MTK的LINKIT ONE，本身有MCU，不需要另外的ARDUINO，還包了BLUETOOTH，WIFI，GPS，只是不知道需不需要這麼多東西 <a href="http://www.seeedstudio.com/depot/LinkIt-ONE-p-2017.html"></a>http://www.seeedstudio.com/depot/LinkIt-ONE-p-2017.html</li></li>
+<li>ps. 可以幫忙焊電路@台北</li></li>
+<li><br/></li>
+<li><a href="http://www.arduino.cc/en/Main.ArduinoGSMShield"></a><a href='http://www.arduino.cc/en/Main.ArduinoGSMShield'/>http://www.arduino.cc/en/Main.ArduinoGSMShield</a></li></ul>
+</ul>
+<ul style="list-style: none;"><li>請問~ 這顆如何? DustDuino :&nbsp; <a href="http://www.publiclab.org/wiki/dustduino"></a>http://www.publiclab.org/wiki/dustduino</li><ul><li><a href='http://www.inside.com.tw/2015/08/11/intel-exploring-air-quality-monitoring'/>不用靠 Google，你也可以做自己的空氣品質監測</a>&nbsp;</li></ul>
+</ul>
+
+<p><b>眉眉角角</b></p><ul><li>自幹的程式放這邊 <a href="https://github.com/miaoski/pm25"></a><a href='https://github.com/miaoski/pm25'/>https://github.com/miaoski/pm25</a></li><ul class="comment"><li>選用 DN7C3CA006 是因為考量到風扇嗎？可是他讓費好多腳位QQ</li></ul>
+</li>
+<li>Linux 下燒 NodeMCU 的方法: <a href="http://hanneslehmann.github.io/2015/01/ESP8266Module_LUA/"></a><a href='http://hanneslehmann.github.io/2015/01/ESP8266Module_LUA/'/>http://hanneslehmann.github.io/2015/01/ESP8266Module_LUA/</a><ul><li>FT232R 直接切到 3.3V，這樣 TX/RX/VCC 都是 3.3V TTL 不用再 level down.&nbsp;</li>
+<li>RST pull high, CH pull high, GPIO0 pull low 就算不能 AT command 也沒關係，esptool.py 直接燒就對了</li>
+<li>燒完後就是 Lua + 9600bps 萬歲！</li></ul>
+</li>
+<li>NodeMCU API <a href="https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn"></a><a href='https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn'/>https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn</a></li>
+<li>測試中的畫面 <a href="http://i.imgur.com/Hl7egG3.jpg"></a><a href='http://i.imgur.com/Hl7egG3.jpg'/>http://i.imgur.com/Hl7egG3.jpg</a></li>
+<li>需要 calibration<ul><li><a href="https://groups.google.com/forum/#"></a><a href='https://groups.google.com/forum/#!topic/airqualityegg/8ZX5_eQOVuI'/>https://groups.google.com/forum/#</a><a href='https://groups.google.com/forum/#!topic/airqualityegg/8ZX5_eQOVuI'/>!topic/airqualityegg/8ZX5_eQOVuI</a></li>
+<li><a href="http://www.takingspace.org/evaluating-low-cost-gas-sensors/"></a><a href='http://www.takingspace.org/evaluating-low-cost-gas-sensors/'/>http://www.takingspace.org/evaluating-low-cost-gas-sensors/</a></li>
+<li><a href="http://www.kandrsmith.org/RJS/Misc/calib_dht22.html"></a><a href='http://www.kandrsmith.org/RJS/Misc/calib_dht22.html'/>http://www.kandrsmith.org/RJS/Misc/calib_dht22.html</a><ul><li>DHT22 使用二週後，濕度從正常的 70%RH 降到 50%RH 了，外面很濕也一樣</li></ul>
+</li>
+<li>可能會因為沒辦法在家中校準，讓數據失去意義</li></ul>
+</li>
+<li>DN7C3CA006 的校準<ul><li>取樣 250 次做平均，第一顆在 210 (1.025V) 左右，第二顆在 230 (1.123V) 左右。</li>
+<li>要加一個電晶體，開機的時候把風扇關掉做 Vs 的校準 :(</li>
+<li>出廠校準是抽測，所以可以預期每一顆都不一樣</li>
+<li>原來環保署也是需要校準的...</li>
+<li><a href="http://taqm.epa.gov.tw/pm25/tw/Download/細懸浮微粒(PM2.5)自動監測數據發布校正原則.pdf"></a><a href='http://taqm.epa.gov.tw/pm25/tw/Download/%E7%B4%B0%E6%87%B8%E6%B5%AE%E5%BE%AE%E7%B2%92(PM2.5)%E8%87%AA%E5%8B%95%E7%9B%A3%E6%B8%AC%E6%95%B8%E6%93%9A%E7%99%BC%E5%B8%83%E6%A0%A1%E6%AD%A3%E5%8E%9F%E5%89%87.pdf'/>http://taqm.epa.gov.tw/pm25/tw/Download/細懸浮微粒(PM2.5)自動監測數據發布校正原則.pdf</a></li>
+<li>公式: pm25 (µg/m^3) = a * b * (Vo[mV] - Vs[mV])<ul><li>a 建議值 0.6</li>
+<li>b 在 RH50% 以下是 1 ，以上是 (1 - 0.01467 * (h - 50))</li></ul>
+</li>
+<li>應該還是可以校正baseline，不過linearity是有點麻煩…</li></ul>
+</li>
+<li>MQ9 和 MQ7 都會受溫、濕度影響，而且需要在標準氣體校準。不要測這一項？</li>
+<li>GP2Y1050AU0F 後來新出這顆內建MCU會不會比較準一點?&nbsp;</li></ul>
+<p><b>耗電量計算</b></p><ul><li>WiFi 傳送時約 150mA (3.3V)</li>
+<li>風扇 max 140mA</li>
+<li>DN7C3CA006 除風扇外約 40mA</li>
+<li>DHT-22</li>
+<li>MQ9 預熱 340mW 運作時電流未標註</li>
+<li>除MQ9預熱外 330mA</li>
+<li>電源穩壓：DC supply - 並聯大小電容 - GND</li></ul>
+
+<h2>Prototype </h2><p><b>台南北區開元派出所</b></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.84104_1439191256826_img_20150810_151333_1024.jpg'/></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.84104_1439191828583_img_20150810_151338_1024.jpg'/></p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.84104_1439192448151_img_20150810_151325_1024.jpg'/></p><p>raw data: <a href="https://www.google.com/fusiontables/DataSource?docid=1BapkNrqyxds1AlmJo_Y4XiYyf-Rxliz9TvZIPOUJ"></a>https://www.google.com/fusiontables/DataSource?docid=1BapkNrqyxds1AlmJo_Y4XiYyf-Rxliz9TvZIPOUJ</p><p>與 epa.tw 資料比較： <a href="https://plot.ly/~miaoski/69/epatw-vs-kiang/"></a>https://plot.ly/~miaoski/69/epatw-vs-kiang/</p><p><img src='https://hackpad-attachments.s3.amazonaws.com/g0v.hackpad.com_B1xkj9fUqqH_p.67260_1440136747838_スクリーンショット 2015-08-21 13.58.56.png'/></p><ul class="comment"><li>&nbsp;BS 建議取樣一分鐘一筆，每秒鐘取樣一次就好。</li></ul>
+
+<p><b>短期目標</b></p><ul><li>製作 3 個 pilot 測試不同的 LCD 點燈、熄燈、等待的參數</li>
+<li>在環保署測站旁放置儀式，測試準確度</li>
+<li>在開放文化基金會提案，製作 10-20 個 pilot 裝置</li></ul>
+
+<p></p><h2>募集</h2><ul><li>前端 / 視覺化呈現</li>
+<li>維修人員 / 略懂電子電路</li>
+<li>校準儀器或重新設計感測元件的強者</li>
+<li>放置裝置的志願者</li></ul>
+
+<ul class="task"><li>找人跳坑寫後端 (目前 realtime 送到 sheethub.com ，但還有些要改)</li>
+<li><s>要和 AirCasting 連嗎？</s></li>
+<li>ESP8266 收到 Arduino 更新時閃燈號 (GPIO0)，收到 server 端 OK 時閃燈號 (GPIO2)</li></ul>
+<ul class="taskdone"><li>安全問題：洗掉設定檔那邊應該由 Arduino 來處理，不應該 fallback 到 AP mode</li></ul>
+<ul class="task"><li>發 ID 給 client 的方法</li>
+<li>OCF 提案請 Intel / MTC 贊助？</li></ul>
+
+<p></p><h2>相關專案</h2><ul><li><a href='/91ZImrFjGvx'/>輻射地圖</a>&nbsp;</li>
+<li><a href="http://www.gcmonitor.org/"></a>http://www.gcmonitor.org/</li>
+<li><a href='https://www.facebook.com/groups/1607718702812067/?fref=ts'/>LASS Group</a>&nbsp;&nbsp; <a href='https://github.com/LinkItONEDevGroup'/>LASS Code</a>&nbsp; 台灣公益感測網路&nbsp;</li></ul>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="2599"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/683$9U6DLtdZc48</title>
+</head>
+<body><h1>projecthub redux</h1><p></p><h2>metadata</h2><ul><li>列表 - <a href="https://github.com/g0v/awesome-g0v"></a><a href='https://github.com/g0v/awesome-g0v'/>https://github.com/g0v/awesome-g0v</a><ul><li>整理舊的列表進入 awesome</li>
+<li>primary key: &quot;:owner/:repo&quot;</li>
+<li>rules:<ul><li>H1: 四大類</li>
+<li>H2: 人工分類</li>
+<li>H3: nested project, 取締一個 li 當 primary, 其他的 part of primary</li></ul>
+</li>
+<li><a href="https://github.com/g0v/awesome-g0v/blob/master/registry.json"></a><a href='https://github.com/g0v/awesome-g0v/blob/master/registry.json'/>https://github.com/g0v/awesome-g0v/blob/master/registry.json</a></li></ul>
+</ul>
+
+<ul><li>列表 + g0v.json or civic.json -&gt; api endpoint (先用一堆 json 檔)<ul><li>additional metadata<ul><li>從 awesome g0v 的結構加註新的 metadata</li>
+<li>gh-pages 下的 CNAME</li></ul>
+</li>
+<li>github.com/g0v/foo (g0v.json) -&gt; (filesystem) g0v/foo.json</li></ul>
+<ul class="taskdone"><li>(先放到 <b>g0v-data/regsitry</b>)</li></ul>
+<ul class="task"><li>自動定期更新</li>
+<li>repo-hook -&gt; 有 commit 更新</li></ul>
+</ul>
+
+<ul><li>defined required fields</li></ul>
+<ul class="code"><li>name - a string specifying the project&rsquo;s name.</li>
+<li>name_zh -&nbsp;</li>
+<li>status - a string indicating the status of the project. The value MUST be one of:</li>
+<li>&quot;Ideation&quot; - brainstorming phase.</li>
+<li>&quot;Alpha&quot; - initial prototyping phase and internal testing.</li>
+<li>&quot;Beta&quot; - a product is being tested in public.</li>
+<li>&quot;Production&quot; - finished Product, with development and maintenance ongoing.</li>
+<li>&quot;Archival&quot; - finished Product, but no longer actively maintained.</li>
+<li>tags - an array of tag strings to help people search for your project, which SHOULD have at least one item.</li>
+<li>license</li></ul>
+<ul class="comment"><li>string value, identifier in :&nbsp; <a href="https://spdx.org/licenses/"></a>https://spdx.org/licenses/</li></ul>
+<p>pilot:</p><ul><li>env.g0v.tw</li>
+<li>budget.g0v.tw</li>
+<li>公司關係圖 ( no g0v.json )</li>
+<li>立委投票指南</li>
+<li>急診 ( no g0v.json )</li>
+<li><a href="http://g0v.tw/en-US/projects.html"></a>http://g0v.tw/en-US/projects.html</li></ul>
+
+<h2>metadata editor </h2><p></p><p>one client side single page editor, which takes:</p><ul><li>url params for pre-filled content</li>
+<li>desired target repo (optional)</li>
+<li>resulting repo and g0v.json location</li></ul>
+
+<p>shows:</p><ul><li>prefilled form for metadata (like <a href="http://open.dc.gov/civic.json/builder.html)"></a><a href='http://open.dc.gov/civic.json/builder.html'/>http://open.dc.gov/civic.json/builder.html</a>)</li>
+<li>diff from existing g0v.json</li></ul>
+
+<p>produces:</p><ul class="taskdone"><li>final g0v.json</li></ul>
+<ul><li>with github account linked, produces:</li></ul>
+<ul class="taskdone"><li>PR for existing g0v.json or civic.json at the target repo)<ul class="taskdone"><li>Create a <a href='https://developer.github.com/v3/git/commits/#create-a-commit'/>commit</a> and a <a href='https://developer.github.com/v3/git/refs/#create-a-reference'/>branch</a></li>
+<li>Create a <a href='https://developer.github.com/v3/pulls/#create-a-pull-request'/>pull request</a> where base is master head is the branch just created</li></ul>
+</ul>
+<ul><li>create repo if not exists</li></ul>
+
+<p>WIP: <a href="https://poga.github.io/metadata-editor/"></a><a href='https://poga.github.io/metadata-editor/'/>https://poga</a>.github.io/metadata-editor/</p><p></p><h2>given hackpad / google sheet search prompt + prefill in editor</h2><p></p><p>find hackpad (via <a href='https://github.com/g0v-data/hackpad-backup-g0v'/>kcwu backup</a>) with keywords:</p><p><b>專案簡介、要解決的問題</b></p><p></p><ul><li>open issue in awesome-g0v if not exists (use hackpad key)<ul><li>link at a <a href='https://github.com/g0v/awesome-g0v/issues/1'/>master awesome-g0v issue</a></li>
+<li>also tag the primary hackpad editor if possible</li>
+<li>provide a link to the editor with pre-fill (TBD)<ul><li>the PR created by editor will link back to this issue</li></ul>
+</li>
+<li>editor should have a callback to add comment to the issue with the resulting repo of this issue, add this to the awesome markdown</li></ul>
+</ul>
+<p>WIP: <a href="https://github.com/g0v/hackpad-parser"></a>https://github.com/g0v/hackpad-parser</p><p>Result: <a href="https://gist.github.com/jessy1092/0025f7638792f2bc34e382bc969e43fe"></a>https://gist.github.com/jessy1092/0025f7638792f2bc34e382bc969e43fe</p><p></p><h2>g0vhelper</h2><p>See: <a href='/g0vhelper-Uv5pR2OeZgm'/>g0vhelper</a>&nbsp;</p><p></p><h2>issues aggregator</h2><p></p><p><b>Archeology</b></p><p></p><p>original hackpad: <a href='/1ngNLPX3mLr'/>g0v tasks queue&nbsp;</a></p><ul class="comment"><li>Current implementation is powered by some code fragment in hack.g0v.tw: <a href="https://github.com/g0v/hack.g0v.tw"></a><a href='https://github.com/g0v/hack.g0v.tw'/>https://github.com/g0v/hack.g0v.tw</a> .</li></ul>
+<p>new hackpad: <a href='/iZZmyUdY57c'/>g0v issue tracker</a></p><p></p><p><a href='/g0v-issue-label--L23ntanWnv7'/>g0v&nbsp; issue label 定義</a>&nbsp;</p><p></p><p>repo: <a href="https://github.com/youchenlee/g0v-issue-tracker"></a>https://github.com/youchenlee/g0v-issue-tracker</p><p></p><p><b>Wish List</b></p><p></p><p>for people to find tasks, filtered by:</p><ul><li>repo language</li>
+<li>required skill (from issue label)</li></ul>
+
+<p>repo issue label sync:</p><ul><li><a href="https://github.com/repo-utils/org-labels"></a><a href='https://github.com/repo-utils/org-labels'/>https://github.com/repo-utils/org-labels</a></li></ul>
+
+<ul class="task"><li>Decide new list of labels <a href='https://github.com/g0v/dev/issues/15'/>g0v/dev#15</a></li>
+<li>show aggregated issues from repo listed in awesome-g0v</li>
+<li>allow filtering by:<ul class="task"><li>language</li>
+<li>label</li></ul class="task">
+</li>
+<li>triage unlabelled</li></ul>
+
+<p><b>Design</b></p><p></p><p>hack.g0v.tw 加一頁 issue list, 提供 label 列表，按下後在 iframe 中開出 github issue search</p><p></p><undefined><li><b>Leverage github.com advanced search</b></li></undefined>
+
+<p>利用 github.com 的 <a href='https://github.com/search/advanced'/>advanced search</a>&nbsp; 找出符合條件的 issues。</p><ul class="comment"><li>這樣就不用養 backend 提供搜尋功能</li></ul>
+
+<p>Advanced search form 使用 GET method，form parameters 有：</p><ul class="comment"><li>這個 form 看起來對應到 github 的 search api:<a href='https://developer.github.com/v3/search/#search-issues'/> </a><a href="https://developer.github.com/v3/search/#search-issues"></a><a href='https://developer.github.com/v3/search/#search-issues'/>https://developer.github.com/v3/search/</a><a href='https://g0v.hackpad.com/ep/search/?q=%23search&amp;via=9U6DLtdZc48'/>#search</a><a href='https://developer.github.com/v3/search/#search-issues'/>-issues</a></li></ul>
+
+<table style="font-size:13px;cell-spacing: 0px; border-collapse: collapse;"><tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">name</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">id</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">data-search-prefix</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">type</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">default</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">example / placeholder</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">utf8</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">hidden</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&#10003;</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">q</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">hidden</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">state:open label:OCR</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">type</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">hidden</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Repositories</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">ref</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">hidden</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">advsearch</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_from</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">user:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_repos</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">repo:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">twbs/bootstrap, rails/rails</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_date</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">created:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">YYYY-MM-DD, YYYY-MM-DD</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">l</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_language</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">language:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">select</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_stars</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">stars:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">0..100, 200, &gt;1000</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_forks</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">forks:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">50..100, 200, &lt;5</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_size</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">size:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Repository size in KB</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_push</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">pushed:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">&lt;YYYY-MM-DD</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">fork:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">select</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">options: not, and (true), only (only)</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Return repositories [*] including forks.</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_extension</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">extension:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">rb, py, jpg</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_file_size</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">size:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">100..8000, &gt;10000</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">duplicate with search_size?</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_path</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">path:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">/foo/bar/baz/qux</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">fork:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">checkbox</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">Return code from forked repositories </td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">duplicate with search_fork</td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_state</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">state:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">select</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">options: open/closed, open (open), closed (closed)</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+<tr><td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">search_comments</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">comments:</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">text</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added">0..100, &gt;442</td>
+<td style="border:1px solid #999; min-width: 50px;height: 22px;line-height: 16px;padding: 0 4px 0 4px;" class="added"></td>
+</tr>
+</table>
+<p></p><p></p><p></p><p>範例：找出 github.com/g0v 下所有 projects 裡，有標 OCR 的 open issues:</p><ul><li>From these owners: g0v</li>
+<li>In the state: open</li>
+<li>With the labels: OCR</li></ul>
+<p>會得到這個 link:<a href='https://github.com/search?utf8=%E2%9C%93&amp;q=state%3Aopen+label%3AOCR&amp;type=Repositories&amp;ref=advsearch&amp;l=&amp;l='/> </a><a href="https://github.com/search?utf8=%E2%9C%93&q=state%3Aopen+label%3AOCR&type=Repositories&ref=advsearch&l=&l="></a>https://github.com/search?utf8=%E2%9C%93&amp;q=state%3Aopen+label%3AOCR&amp;type=Repositories&amp;ref=advsearch&amp;l=&amp;l=</p><p>再點 Issues 得到這個 link: <a href="https://github.com/search?l=&q=state%3Aopen+label%3AOCR&ref=advsearch&type=Issues&utf8=%E2%9C%93"></a>https://github.com/search?l=&amp;q=state%3Aopen+label%3AOCR&amp;ref=advsearch&amp;type=Issues&amp;utf8=%E2%9C%93</p><p></p><p></p><h2>project browser</h2><p></p><p>existing:</p><ul><li><a href="https://www.codeforamerica.org/brigade/projects"></a>https://www.codeforamerica.org/brigade/projects</li>
+<li>(待捕)</li></ul>
+
+<p><b>Default, allow search for everything</b></p><p>for participants: show everything and allow filtering ?</p><p></p><ul><li>allow showing sub-project</li>
+<li>一鍵加入列表或更新內容 Link to editor</li></ul>
+
+<p><b>Featured projects</b></p><p></p><p>for public: (show only ones with thumbnails, or projects in beta or production)</p><p></p><p>show subprojects (derived from g0v.json: with partOf: field)</p><p></p><p><b>瀏覽器外掛</b></p><ul><li>爬蟲類圖鑑 (metadata contains: parserFor:zxxx.gov.tw, serviceFor:ooo.gov.tw)<ul><li>eg: 求職小幫手: 瀏覽勞動部時顯示：講個秘訣</li>
+<li>eg: 教育部辭典: 顯示：講個秘訣，萌典很好用</li></ul>
+</ul>
+
+<p></p><ul><li><br/></li></ul>
+<h2>g0vzilla</h2><h2>status / dashboard</h2><ul><li>beta 版需要的東西<ul><li>g0v domain</li>
+<li>ga</li>
+<li>etc...</li>
+<li><br/></li></ul>
+</ul>
+
+<h2>tools for migrating g0v.json to civic.json</h2><p></p><ul><li>review current spec: <a href='/c07sSfauWSc'/>g0v.json spec</a></li>
+<li>之前的 g0v label issue <a href='https://github.com/g0v/dev/issues/15'/>g0v/dev#15</a></li></ul>
+
+<p>spec by et: (待捕)</p><p></p><p></p></body>
+</html>
